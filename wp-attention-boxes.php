@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: WP Focus Here Attention Box
+Plugin Name: WP Attention Boxes
 Plugin URI: http://stevebailey.biz/blog/apps/
 Description: Instantly add four of your most commonly used CSS-styled DIV's for different purposes, such as bringing attention to an important update, or just bringing visual focus to a quote..
 Version: 0.1
@@ -23,20 +23,6 @@ Copyright 2010 Steve Bailey (email steveswdev@gmail.com)
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-INSTALLATION
-------------
-1. Unzip the archive 'wp-focus-attention.zip' to a local folder on your computer.
-2. Upload the folder 'wp-focus-attention' and its contents to your blog's plugin folder (root/wp-content/plugins) using FTP.
-3. Login to your Wordpress admin panel and browse to the Plugins section.
-4. Activate the WP Focus Here Attention Box plugin.
-5. Under the Settings menu, select "Add attn Div Boxes" to visit the Options page for this plugin, where you customize the css styles for your 4 different DIV's
-6. When done, click "Save Changes" button at the bottom
-7. When you next edit/create new a blog entry, *and select the HTML mode toolbox*, you will see the four extra buttons. Clicking one will insert the html for
-  the associated DIV, along with inline styles (there's not yet a convenient way to avoid the inlines, i.e. somehow dynamically generating a css file to include)
-8. If these extra buttons take too much room, there are 2 different solutions:
-   A. visit the options page, make the names shorter
-   B.                         or disable one or more with the "enable" checkbox, so that less buttons appear
 
 */
 
