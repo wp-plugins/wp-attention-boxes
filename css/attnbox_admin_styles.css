@@ -1,0 +1,17 @@
+.form-table th {
+    width: 25px;
+    padding-right: 1px;
+}
+
+
+/*table.disabled_text tr th span{
+    color :gray;   
+
+}*/
+
+table.disabled_text tr td input,
+table.disabled_text tr th .name_input {
+    color:gray;
+}
+
+
