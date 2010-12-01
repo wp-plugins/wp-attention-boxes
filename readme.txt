@@ -49,8 +49,8 @@ Instructions for installing the WP Attention Boxes Plugin.
 
 == Screenshots ==
 
-screenshot-1.jpg
-screenshot-2.jpg
+1. The html editor bar after the new buttons are added to it, for this plugin.
+2. This is the options page, used to define the styling of each of the 4 DIV's.
 
 == Changelog ==
 
