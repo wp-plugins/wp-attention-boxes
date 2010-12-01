@@ -27,7 +27,7 @@ See my <a href="http://stevebailey.biz/blog/apps" target="_blank">Blog</a> for m
 
 == Installation ==
 
-Instructions for installing the WP Content Filter Plugin.
+Instructions for installing the WP Attention Boxes Plugin.
 
 1. Download and extract the Plugin zip file.
 2. Upload the folder containing the Plugin files to your WordPress Plugins folder (usually ../wp-content/plugins/ folder).
