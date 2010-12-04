@@ -37,8 +37,7 @@ Instructions for installing the WP Attention Boxes Plugin.
 
 == Frequently Asked Questions ==
 
-= I notice that when I click the toolbar button to insert the DIV html in the post, inline CSS is included in the html. 
- Isn't that not recommended as a standard way to code html and css?  =
+= I notice that when I click the toolbar button to insert the DIV html in the post, inline CSS is included in the html.  Isn't that not recommended as a standard way to code html and css? =
  
  I don't see an easy way with the current WP API to dynamically change an external CSS file, when you make updates to your custom DIV's.
  Right now, this is the best solution.
@@ -49,7 +48,7 @@ Instructions for installing the WP Attention Boxes Plugin.
 
 == Screenshots ==
 
-1. The html editor bar after the new buttons are added to it, for this plugin.
+1. Html editor bar after new buttons are added (if the buttons consume too much space, you can disable one or more, or name them as short as you want)
 2. This is the options page, used to define the styling of each of the 4 DIV's.
 
 == Changelog ==
