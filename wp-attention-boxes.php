@@ -3,7 +3,7 @@
 Plugin Name: WP Attention Boxes
 Plugin URI: http://stevebailey.biz/blog/apps/
 Description: Instantly add four of your most commonly used CSS-styled DIV's for different purposes, such as bringing attention to an important update, or just bringing visual focus to a quote..
-Version: 0.1
+Version: 0.2
 Author: Steve Bailey
 Author URI: http://stevebailey.biz/
 License: GPL
@@ -170,7 +170,7 @@ function wp_attnbox4_handler() {
     styled_div += "px";
     styled_div += ' ' + border_style;
     styled_div += ' ' + border_color + ';';
-    styled_div += ' color: ' + textcolor + ';"';
+    styled_div += ' color: ' + textcolor + ';';
     styled_div += ' background-color: ' + backcolor + ';"';
     styled_div += ">your text</div>\n";
     myValue = styled_div;

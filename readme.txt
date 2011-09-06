@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
 Tested up to: 3.01
-Stable tag: 1.0
+Stable tag: 1.01
 
 A specialized code snippet tool that provides one click acess, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
@@ -14,14 +14,13 @@ A specialized code snippet tool that provides one click acess, when editing post
 Sometimes you just want to call out attention to a particular important message, or quote, or a collection of links, in a
 bright yellow box, or similar, in a Blog post.  And you might do this a lot in your blog entries. 
 
-This plugin keeps a snippet library of these stylized DIV's, and makes them immediately accessible in your edit post page by clicking
-a button on your html toolbar.
+This plugin keeps a snippet library of these stylized DIV's, and makes them immediately accessible in your edit post page by clicking a button on your html-mode toolbar.
 
 If after the default activation of your plugin, you find these buttons too space-consuming on your toolbar, you can:
    1. rename them on the Settings/Options page for this plugin, to smaller names
-   2. Disable any of them that you don't need.
+   2. Simply Disable any of them that you don't need.
    
-   ( a future version really does call for just one button, and them some kind of prompt that asks you which of the DIV's you want to insert )
+   ( a future version really does call for just one button, and them some kind of prompt that asks you which of the DIV's you want to insert - the wp api has probably been improved to make this easy, but f/t work takes me away from this )
 
 See my <a href="http://stevebailey.biz/blog/apps" target="_blank">Blog</a> for more information.
 
@@ -46,6 +45,10 @@ Instructions for installing the WP Attention Boxes Plugin.
 
  Yes, it adds a single record to the wp_options table, which stores all of the custom DIV's.
 
+= I notice the class="custom_attn_box" that is generated with every snippet
+
+This is a common style that will make every DIV centered, and with decent padding and make them all text-aligned center. Feel free to customize this if you want all of your attention box DIV's to be different.  Just edit the styles.css that is in this plugin's css directory.
+
 == Screenshots ==
 
 1. Html editor bar after new buttons are added (if the buttons consume too much space, you can disable one or more, or name them as short as you want)
@@ -53,5 +56,8 @@ Instructions for installing the WP Attention Boxes Plugin.
 
 == Changelog ==
 
-currently at 1.0
+0.1 - original commit of this plugin
+1.01 - fix bug .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
+== Upgrade Notice ==
+There is no upgrade, just a bug fix (not sure why I started with 0.1 though)
