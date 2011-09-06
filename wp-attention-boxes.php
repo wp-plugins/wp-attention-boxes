@@ -110,7 +110,7 @@ function wp_attnbox1_handler() {
     styled_div += "px";
     styled_div += ' ' + border_style;
     styled_div += ' ' + border_color + ';';
-    styled_div += ' color: ' + textcolor + ';"';
+    styled_div += ' color: ' + textcolor + ';';
     styled_div += ' background-color: ' + backcolor + ';"';
     styled_div += ">your text</div>\n";
     myValue = styled_div;
@@ -130,7 +130,7 @@ function wp_attnbox2_handler() {
     styled_div += "px";
     styled_div += ' ' + border_style;
     styled_div += ' ' + border_color + ';';
-    styled_div += ' color: ' + textcolor + ';"';
+    styled_div += ' color: ' + textcolor + ';';
     styled_div += ' background-color: ' + backcolor + ';"';
     styled_div += ">your text</div>\n";
     myValue = styled_div;
@@ -150,7 +150,7 @@ function wp_attnbox3_handler() {
     styled_div += "px";
     styled_div += ' ' + border_style;
     styled_div += ' ' + border_color + ';';
-    styled_div += ' color: ' + textcolor + ';"';
+    styled_div += ' color: ' + textcolor + ';';
     styled_div += ' background-color: ' + backcolor + ';"';
     styled_div += ">your text</div>\n";
     myValue = styled_div;
