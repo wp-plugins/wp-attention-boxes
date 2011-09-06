@@ -1,10 +1,9 @@
 === WP Attention Boxes ===
 Contributors: pythoPhpSteve
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HFF8WFES28C7Y
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
 Tested up to: 3.01
-Stable tag: 1.0.1
+Stable tag: 0.2
 
 A specialized code snippet tool that provides one click acess, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
@@ -61,7 +60,7 @@ My apologies for the confusion, I'll get that straightened out in the next minor
 == Changelog ==
 
 0.1 - original commit of this plugin
-1.0.1 - fix bug .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
+0.2 - fix bug .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
-There is no upgrade, just a bug fix (not sure why I started with 0.1 though)
+There is no upgrade, just a bug fix 
