@@ -45,9 +45,10 @@ Instructions for installing the WP Attention Boxes Plugin.
 
  Yes, it adds a single record to the wp_options table, which stores all of the custom DIV's.
 
-= I notice the class="custom_attn_box" that is generated with every snippet
+= I notice the class="custom_attn_box" that is generated with every snippet and thus all of the div snippets will share =
 
-This is a common style that will make every DIV centered, and with decent padding and make them all text-aligned center. Feel free to customize this if you want all of your attention box DIV's to be different.  Just edit the styles.css that is in this plugin's css directory.
+This is a set of common styles that will make every DIV centered, and with some arbitrary padding, margin and width settings that I chose.  Feel free to customize this if you want all of your attention box DIV's with a different set of these styles.   Just edit the styles.css that is in this plugin's css directory.  
+*Note* - I don't confuse anyone into thinking to use this plugin, you must get into css code to this degree .. again, going into the css/style.css file is *only* if you want to change anything other than the color, background color, and border style of which I provided the user-friendly admin settings page for.
 
 == Screenshots ==
 
