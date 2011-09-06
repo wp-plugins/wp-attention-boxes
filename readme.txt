@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
 Tested up to: 3.01
-Stable tag: 1.01
+Stable tag: 1.0.1
 
 A specialized code snippet tool that provides one click acess, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
@@ -57,7 +57,7 @@ This is a common style that will make every DIV centered, and with decent paddin
 == Changelog ==
 
 0.1 - original commit of this plugin
-1.01 - fix bug .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
+1.0.1 - fix bug .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
 There is no upgrade, just a bug fix (not sure why I started with 0.1 though)
