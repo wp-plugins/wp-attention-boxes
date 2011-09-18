@@ -56,6 +56,7 @@ My apologies for the confusion, I'll get that straightened out in the next minor
 
 1. Html editor bar after new buttons are added (if the buttons consume too much space, you can disable one or more, or name them as short as you want)
 2. This is the options page, used to define the styling of each of the 4 DIV's.
+3. Actual stylized box examples (just as an example of the variation of styles, just the border type alone could be: solid, dotted, dashed, double, groove, ridge, inset, outset )
 
 == Changelog ==
 
