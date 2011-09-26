@@ -34,23 +34,18 @@ Instructions for installing the WP Attention Boxes Plugin.
 5. There will be four default DIV's already there which may serve your purpose, however of course change them as you need.
 
 == Frequently Asked Questions ==
-
-= I notice that when I click the toolbar button to insert the DIV html in the post, inline CSS is included in the html.  Isn't that not recommended as a standard way to code html and css? =
- 
- I don't see an easy way with the current WP API to dynamically change an external CSS file, when you make updates to your custom DIV's.
- Right now, this is the best solution.
+= What if I use the Visual Editor when creating pages/posts ? =
+This plugin only works when in the Html editor - i.e. the buttons only auto-create raw HTML 
 
 = Does the plugin change the content in the WordPress database? =
 
- Yes, it adds a single record to the wp_options table, which stores all of the custom DIV's.
+ Yes, it adds a single record to the wp_options table. This stores all of the custom DIV's.
+No other changes to the database. 
 
 = I notice the class="custom_attn_box" that is generated with every snippet and thus all of the div snippets will share =
 
 This is a set of common styles that will make every DIV centered, and with some arbitrary padding, margin and width settings that I chose.  Feel free to customize this if you want all of your attention box DIV's with a different set of these styles.   Just edit the styles.css that is in this plugin's css directory.  
 *Note* - I don't want to confuse anyone into thinking to use this plugin, you must get into css code to this degree .. again, going into the css/style.css file is *only* if you want to change anything other than the color, background color, and border style of which I provided the user-friendly admin settings page for.
-
-= Why does the filename have 1.0.1 when the wordpress page has 0.2 =
-My apologies for the confusion, I'll get that straightened out in the next minor update
 
 == Screenshots ==
 
