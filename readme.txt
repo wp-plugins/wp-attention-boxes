@@ -57,6 +57,8 @@ This is a set of common styles that will make every DIV centered, and with some 
 
 0.1 - original commit of this plugin
 0.2 - fix bug .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
+0.2 - bug fix
+
 
 == Upgrade Notice ==
 There is no upgrade, just a bug fix 
