@@ -119,8 +119,8 @@ function wp_attnbox1_handler() {
 
 function wp_attnbox2_handler() {
     
-    textcolor = "<?php echo $options['color1']; ?>";
-    backcolor = "<?php echo $options['backcolor1']; ?>";
+    textcolor = "<?php echo $options['color2']; ?>";
+    backcolor = "<?php echo $options['backcolor2']; ?>";
     border_width = "<?php echo  $options['bwidth2']; ?>";
     border_color = "<?php echo $options['bcolor2']; ?>";
     border_style = "<?php echo $options['bstyle2']; ?>";
@@ -139,8 +139,8 @@ function wp_attnbox2_handler() {
 
 function wp_attnbox3_handler() {
     
-    textcolor = "<?php echo $options['color1']; ?>";
-    backcolor = "<?php echo $options['backcolor1']; ?>";
+    textcolor = "<?php echo $options['color3']; ?>";
+    backcolor = "<?php echo $options['backcolor3']; ?>";
     border_width = "<?php echo  $options['bwidth3']; ?>";
     border_color = "<?php echo $options['bcolor3']; ?>";
     border_style = "<?php echo $options['bstyle3']; ?>";
@@ -159,8 +159,8 @@ function wp_attnbox3_handler() {
 
 function wp_attnbox4_handler() {
     
-    textcolor = "<?php echo $options['color1']; ?>";
-    backcolor = "<?php echo $options['backcolor1']; ?>";
+    textcolor = "<?php echo $options['color4']; ?>";
+    backcolor = "<?php echo $options['backcolor4']; ?>";
     border_width = "<?php echo  $options['bwidth4']; ?>";
     border_color = "<?php echo $options['bcolor4']; ?>";
     border_style = "<?php echo $options['bstyle4']; ?>";
