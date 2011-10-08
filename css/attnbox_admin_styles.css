@@ -4,11 +4,6 @@
 }
 
 
-/*table.disabled_text tr th span{
-    color :gray;   
-
-}*/
-
 table.disabled_text tr td input,
 table.disabled_text tr th .name_input {
     color:gray;

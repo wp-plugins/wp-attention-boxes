@@ -7,8 +7,67 @@ class Attention_Box_Options {
     function __construct() {
         add_action('admin_menu', array( &$this,'attn_box_plugin_menu'));
         add_action( 'admin_init', array( &$this,'attnbox_register_settings' ));
+        add_action( 'admin_init', array( &$this,'wp_attn_boxes_add_div_carousel'));
         wp_register_script( 'myPluginScript', WP_PLUGIN_URL . '/wp-attention-boxes/js/attnbox_option.js' );
     }
+    
+    
+    
+
+/* Adds a box to the main column on the Post and Page edit screens */
+function wp_attn_boxes_add_div_carousel() {
+   $this->enqueue_metabox_styles();
+
+    add_meta_box( 
+        'attnbox_sectionid',
+        __( 'View Your Attention Boxes', 'attnbox_textdomain' ),
+        array($this, 'wp_box_div_carousel'),
+        'post' 
+    );
+    
+     add_meta_box( 
+        'attnbox_sectionid',
+        __( 'View Your Attention Boxes', 'attnbox_textdomain' ),
+        array($this, 'wp_box_div_carousel'),
+        'page' 
+    );
+}
+
+
+
+function enqueue_metabox_styles() {
+      $myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/attnbox_postmetabox_styles.css';
+        $myStyleFile = WP_PLUGIN_DIR . '/wp-attention-boxes/css/attnbox_postmetabox_styles.css';
+        if ( file_exists($myStyleFile) ) {
+            wp_register_style('my_wpattn_box_metabox_StyleSheets', $myStyleUrl);
+            wp_enqueue_style( 'my_wpattn_box_metabox_StyleSheets');
+        }
+   }
+
+
+/* Prints the box content */
+function wp_box_div_carousel ( $post ) {
+
+
+  // Use nonce for verification
+  // wp_nonce_field( plugin_basename( __FILE__ ), 'myplugin_noncename' );
+
+  // print the configured boxes ________________________________
+
+  echo '<div class="outer_div_post_page">';
+  $options = get_option('attnbox_options'); 
+  foreach (range(1,4) as $indx) {
+   $style = 'style="color:' . $options['color' . $indx] . ';';
+   $style .= 'background-color:' . $options['backcolor' . $indx] . ';';
+   $style .= 'border:' . $options['bwidth' . $indx] . "px";
+   $style .= ' ' . $options['bstyle' . $indx];
+   $style .= ' ' . $options['bcolor' . $indx] . '"';
+   
+    echo '<div ' . $style .  '>' . $options['box_name_' . $indx] . '</div>';
+  }
+    
+  echo '</div>'; 
+ }
     
     function attn_box_plugin_menu() {
         $mypage = add_options_page('WP Attention Boxes Options Page','Attention Div Boxes', 
@@ -257,6 +316,9 @@ class Attention_Box_Options {
 <?php }
 
 } 
+
+
+
 
 function attnboxes_validate($input) {
        
