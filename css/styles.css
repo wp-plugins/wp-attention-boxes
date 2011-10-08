@@ -1,6 +1,5 @@
 .custom_attn_box {
-   margin-left: auto;
-   margin-right: auto;
+   margin: 10px auto;
    width: 70%;
    padding-left: 4px;
    padding-right: 4px;
@@ -8,3 +7,4 @@
    padding-bottom: 4px;
    text-align: center;
 }
+

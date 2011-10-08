@@ -66,8 +66,8 @@ class Attention_Box {
       $myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/styles.css';
         $myStyleFile = WP_PLUGIN_DIR . '/wp-attention-boxes/css/styles.css';
         if ( file_exists($myStyleFile) ) {
-            wp_register_style('myStyleSheets', $myStyleUrl);
-            wp_enqueue_style( 'myStyleSheets');
+            wp_register_style('my_wpattn_box_StyleSheets', $myStyleUrl);
+            wp_enqueue_style( 'my_wpattn_box_StyleSheets');
         }
    }
    
