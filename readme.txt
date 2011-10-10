@@ -52,12 +52,16 @@ Good question, the next major version will provide 10
 
 == Changelog ==
 
-0.1 - original commit of this plugin
-0.2 - fix bug .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
-0.2 - bug fix
-0.3 - added a convenient visual reference section that shows you what your DIV's look like w/o having to save your post and switch to this plugin's Settings page
+= 0.2 =
+* fix bug .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
+= 0.3 =
+* added a convenient visual reference section that shows you what your DIV's look like w/o having to save your post and switch to this plugin's Settings page
 
 
 == Upgrade Notice ==
-There is no upgrade, just a bug fix 
-Added meta-box to post/page editing page to display the custom div's
+
+= 0.3 =
+Added meta-box to post/page editing page to display the custom div's. This makes this plugin way more easier to use.
+
+= 0.2 =
+Fixes a bug that affects the css syntax
