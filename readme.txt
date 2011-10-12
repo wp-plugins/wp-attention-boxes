@@ -32,6 +32,9 @@ Instructions for installing the WP Attention Boxes Plugin.
 = What if I use the Visual Editor when creating pages/posts ? =
 This plugin only works when in the Html editor - i.e. this is basically for users who prefer the HTML tab of the editor, or at least switch to it for tools like this one.
 
+= Ok, but when I switch to the HTML Editor after doing a lot of work in the Visual Editor, sometimes I lose some formatting =
+My advice, to be able to use tools in the Html editor (whether it's this plugin or not) might be to start every brand new blog post in the Html editor, and add all of the code using those tools, first and then switch to the Visual Editor where you stay until the post is finished and published. This way you're not going back and forth.
+
 = Does the plugin change the content in the WordPress database? =
 
  Yes, it adds a single record to the wp_options table. This stores all of the custom DIV's.
@@ -40,8 +43,8 @@ No other changes to the database.
 = Do you plan on adding the ability to store snippets for other types of html elements? =
 Yes, the next major version will provide the ability to store different styles of your own image-based (or non-imaged based) bullet lists
 
-= why only 4 =
-Good question, the next major version will provide 10
+= Why only 4 =
+Good question, the next version will provide 10
 
 == Screenshots ==
 
