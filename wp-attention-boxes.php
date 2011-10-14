@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WP Attention Boxes
-Plugin URI: http://stevebailey.biz/blog/apps/
+Plugin URI: http://stevebailey.biz/blog/wp-attention-boxes
 Description: Instantly add four of your most commonly used CSS-styled DIV's for different purposes, such as bringing attention to an important update, or just bringing visual focus to a quote..
 Version: 0.3
 Author: Steve Bailey
