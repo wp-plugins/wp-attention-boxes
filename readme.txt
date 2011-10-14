@@ -5,7 +5,7 @@ Requires at least: 2.7
 Tested up to: 3.21
 Stable tag: 0.3
 
-A specialized code snippet tool that provides one click acess, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
+A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
 
 == Description ==
@@ -16,7 +16,11 @@ bright yellow box, or similar, in a Blog post.  And you might do this a lot in y
 This plugin keeps a snippet library of these stylized DIV's, and makes them immediately accessible in your edit post page by clicking a button on your html-mode toolbar.
 
 
-The contact page for this plugin is: <a href="http://stevebailey.biz/blog1/apps" target="_blank">Blog</a>, however this plugin page on wordpress that you're looking at, has all the info  you need.
+
+The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
+
+Currently the screen shots don't seem to be showing for this plugin, on the page you're looking at, so you can see the screenshots at the site above
+
 
 == Installation ==
 
@@ -33,7 +37,7 @@ Instructions for installing the WP Attention Boxes Plugin.
 This plugin only works when in the Html editor - i.e. this is basically for users who prefer the HTML tab of the editor, or at least switch to it for tools like this one.
 
 = Ok, but when I switch to the HTML Editor after doing a lot of work in the Visual Editor, sometimes I lose some formatting =
-My advice, to be able to use tools in the Html editor (whether it's this plugin or not) might be to start every brand new blog post in the Html editor, and add all of the code using those tools, first and then switch to the Visual Editor where you stay until the post is finished and published. This way you're not going back and forth.
+My advice, to be able to use tools in the Html editor (whether it's this plugin or not) might be to start every brand new blog post in the Html editor, and add all of the code using those tools first, and then switch to the Visual Editor where you stay until the post is finished and published. This way you're not going back and forth.
 
 = Does the plugin change the content in the WordPress database? =
 
@@ -51,7 +55,7 @@ Good question, the next version will provide 10
 1. Html editor bar after new buttons are added (if the buttons consume too much space, you can disable one or more, or name them as short as you want)
 2. This is the options page, used to define the styling of each of the 4 DIV's.
 3. Actual stylized box examples (just as an example of the variation of styles, just the border type alone could be: solid, dotted, dashed, double, groove, ridge, inset, outset )
-4. This new feature was a non-brainer to add, and makes this plugin twice as useful IMO - not sure why I didn't add this to the initial 0.1 version .. it was very easy code-wise
+4. This new feature was a non-brainer to add, and makes this plugin much more useful - not sure why I didn't add this to the initial 0.1 version .. it was very easy code-wise
 
 == Changelog ==
 
