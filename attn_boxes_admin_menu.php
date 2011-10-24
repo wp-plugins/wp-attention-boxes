@@ -59,11 +59,16 @@ function wp_box_div_carousel ( $post ) {
   foreach (range(1,4) as $indx) {
    $style = 'style="color:' . $options['color' . $indx] . ';';
    $style .= 'background-color:' . $options['backcolor' . $indx] . ';';
-   $style .= 'border:' . $options['bwidth' . $indx] . "px";
+   $style .= 'border:' . $options['bwidth' . $indx];
    $style .= ' ' . $options['bstyle' . $indx];
-   $style .= ' ' . $options['bcolor' . $indx] . '"';
-   
-    echo '<div ' . $style .  '>' . $options['box_name_' . $indx] . '</div>';
+   $style .= ' ' . $options['bcolor' . $indx] . ';';
+   if (isset($options['enable_rounded' . $indx]) && ($options['enable_rounded'.$indx] == "1")) {
+     $style .= ' -webkit-border-radius: ' . $options['roundsize' . $indx] . ';';
+     $style .= ' -moz-border-radius: ' . $options['roundsize' . $indx] . ';';
+     $style .= ' border-radius: ' . $options['roundsize' . $indx] . ';';
+   }
+   $style .= ' text-align: ' . $options['align' . $indx] . ';"';
+   echo '<div ' . $style .  '>' . $options['box_name_' . $indx] . '</div>';
   }
     
   echo '</div>'; 
@@ -81,6 +86,7 @@ function wp_box_div_carousel ( $post ) {
         $plugindir = get_settings('home').'/wp-content/plugins/'.dirname(plugin_basename(__FILE__));
     	wp_enqueue_script('myPluginScript');
     	echo '<link rel="stylesheet" href="' . $plugindir . '/css/attnbox_admin_styles.css" type="text/css" />';
+    	echo '<link rel="stylesheet" href="' . $plugindir . '/css/styles.css" type="text/css" />';
     }
 
 
@@ -95,41 +101,48 @@ function wp_box_div_carousel ( $post ) {
         <div class="icon32" id="icon-options-general"><br></div>
         <h2>Set your Attention Box(Div) Properties</h2>
         <p>Configure the plugin options below</p>
+        
+        <div id="main_settings_section">
+        
+        
         <form method="post" action="options.php">
         <?php settings_fields('attnbox_user_options'); ?>
         <?php $options = get_option('attnbox_options'); 
         
-        if (empty($options[enable_div1]))
-            $disabled_text_1 = " disabled_text";
-        if (empty($options[enable_div2]))
-            $disabled_text_2 = " disabled_text";
-        if (empty($options[enable_div3]))
-            $disabled_text_3 = " disabled_text";
-        if (empty($options[enable_div4]))
-            $disabled_text_4 = " disabled_text";
+        /*-webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;*/
+        
+        
         ?>    
-        <table id="group_1" class="form-table <?php echo $disabled_text_1; ?>">
+        <table id="1" class="form-table" cellpadding="0" cellspacing="0">
             
         <tr valign="top">
-           <th><input id="1" name="attnbox_options[enable_div1]" type="checkbox" value="1" <?php checked('1', $options['enable_div1']); ?>> Enabled</th> 
-           <th scope="row"><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_1]" value="<?php echo $options['box_name_1']; ?>" /></span></th>
+           <th ><input  name="attnbox_options[enable_div1]" class="enable_check" type="checkbox" value="1" <?php checked('1', $options['enable_div1']); ?>> Name: </th> 
+           <th scope="row">
+              <span>   <input id="boxname_1" type="text" size="45" class="name_input" name="attnbox_options[box_name_1]" value="<?php echo $options['box_name_1']; ?>" />
+              </span>
+            </th>
         </tr>    
         <tr>
             <th scope="row" >Text Color</th>
-            <td><label><input type="text" name="attnbox_options[color1]" value="<?php echo $options['color1']; ?>" />
-                <span style="color:#666666;margin-left:40px;"> [ex: either "red" or "#ff0000"]</span>  </label>
+            <td><input id="color1" type="text" name="attnbox_options[color1]" value="<?php echo $options['color1']; ?>" />
+               
            </td>
         </tr>
         <tr>
             <th scope="row" >Background Color</th>
-            <td><label><input type="text" name="attnbox_options[backcolor1]" value="<?php echo $options['backcolor1']; ?>" />
-                <span style="color:#666666;margin-left:40px;"> [ex: either "red" or "#ff0000"]</span>  </label>
+            <td><input  id="backcolor1" type="text" name="attnbox_options[backcolor1]" value="<?php echo $options['backcolor1']; ?>" />
+                
            </td>
         </tr>
         <tr>    
-            <th scope="row">Border Style</th>
+            <th  scope="row">Border: </th>
             <td>
-                 <select name="attnbox_options[bstyle1]">
+                 
+                 <input id="bwidth1" size=6 type="text" name="attnbox_options[bwidth1]" value="<?php echo $options['bwidth1']; ?>" />
+                 
+                 <select id="bstyle1" class="border_style"  name="attnbox_options[bstyle1]">
                     <option value='solid' <?php selected('solid', $options['bstyle1']); ?>>Solid</option>
                     <option value='dotted' <?php selected('dotted', $options['bstyle1']); ?>>Dotted</option>
                     <option value='dashed' <?php selected('dashed', $options['bstyle1']); ?>>Dashed</option>
@@ -139,54 +152,56 @@ function wp_box_div_carousel ( $post ) {
                     <option value='inset' <?php selected('inset', $options['bstyle1']); ?>>Inset</option>
                     <option value='outset' <?php selected('outset', $options['bstyle1']); ?>>Outset</option>
                   </select>
-            </td>
-         </tr>
-         <tr> 
-            <th scope="row">Border Color</th> 
-            <td>
-                <label><input type="text" name="attnbox_options[bcolor1]" value="<?php echo $options['bcolor1']; ?>" />
-                    <span style="color:#666666;margin-left:40px;"> [ex: either "red" or "#ff0000"]</span>
-                    </label>
-             </td>
-         </tr>
-         <tr>   
-           <th scope="row">Border Width</th>
-            <td>
-                <label><input type="text" name="attnbox_options[bwidth1]" value="<?php echo $options['bwidth1']; ?>" />
-                    <span style="color:#666666;margin-left:40px;"> [must be integer]</span>
-                    </label>
+                  
+                 <input id="bcolor1" class="border_color" type="text" name="attnbox_options[bcolor1]" value="<?php echo $options['bcolor1']; ?>" /> 
+                  
             </td>
          </tr>
          
+          <tr>    
+            <th scope="row"><input id="round1" type="checkbox" name="attnbox_options[enable_rounded1]" value="1" <?php checked('1', $options['enable_rounded1']); ?>> Rounded Corners: </th>
+            <td><input id="roundsize1" class="border_color" type="text" name="attnbox_options[roundsize1]" value="<?php echo $options['roundsize1']; ?>" /> </td> 
+          </tr>  
+          <tr>
+            <td><hr style="margin-top: 1px;"></td>
+          </tr>
+          
+           <tr>
+           <th>Text Alignment</th>
+            <td>Left Align: <input type="radio"  <?php checked('left', $options['align1']); ?> name="attnbox_options[align1]" value="left" > 
+                Center Align: <input type="radio" <?php checked('center', $options['align1']); ?> name="attnbox_options[align1]" value="center"></td>
+          </tr>
+          
          </table>
          
          <p>&nbsp;</p>
          
-         <table id="group_2" class="form-table <?php echo $disabled_text_2; ?>">
-         
-         <tr>
-            <th><input id="2" name="attnbox_options[enable_div2]" type="checkbox" value="1" <?php checked('1', $options['enable_div2']); ?>> Enabled</th> 
-            <th scope="row"><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_2]" value="<?php echo $options['box_name_2']; ?>" /></span></span></th>
-         </tr>
-      
-         <tr>
+        
+         <table id="2" class="form-table">
+            
+        <tr valign="top">
+           <th> <input  name="attnbox_options[enable_div2]" class="enable_check" type="checkbox" value="1" <?php checked('1', $options['enable_div2']); ?>> Name: </th> 
+           <th scope="row"><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_2]" value="<?php echo $options['box_name_2']; ?>" /></span></th>
+        </tr>    
+        <tr>
             <th scope="row" >Text Color</th>
-            <td><label><input type="text" name="attnbox_options[color2]" value="<?php echo $options['color2']; ?>" />
-                <span style="color:#666666;margin-left:40px;"> [ex: either "red" or "#ff0000"]</span>  </label>
+            <td><input id="color2" type="text" name="attnbox_options[color2]" value="<?php echo $options['color2']; ?>" />
+               
            </td>
         </tr>
         <tr>
             <th scope="row" >Background Color</th>
-            <td><label><input type="text" name="attnbox_options[backcolor2]" value="<?php echo $options['backcolor2']; ?>" />
-                <span style="color:#666666;margin-left:40px;"> [ex: either "red" or "#ff0000"]</span>  </label>
+            <td><input id="backcolor2" type="text" name="attnbox_options[backcolor2]" value="<?php echo $options['backcolor2']; ?>" />
+                
            </td>
         </tr>
-            
-         <tr>    
-             <th scope="row">Border Style</th>
-             <td>
-                <label>
-                 <select name="attnbox_options[bstyle2]">
+        <tr>    
+            <th scope="row">Border: </th>
+            <td>
+                 
+                 <input id="bwidth2" size=6 type="text" name="attnbox_options[bwidth2]" value="<?php echo $options['bwidth2']; ?>" />
+                 
+                 <select id="bstyle2" class="border_style" name="attnbox_options[bstyle2]">
                     <option value='solid' <?php selected('solid', $options['bstyle2']); ?>>Solid</option>
                     <option value='dotted' <?php selected('dotted', $options['bstyle2']); ?>>Dotted</option>
                     <option value='dashed' <?php selected('dashed', $options['bstyle2']); ?>>Dashed</option>
@@ -196,47 +211,54 @@ function wp_box_div_carousel ( $post ) {
                     <option value='inset' <?php selected('inset', $options['bstyle2']); ?>>Inset</option>
                     <option value='outset' <?php selected('outset', $options['bstyle2']); ?>>Outset</option>
                   </select>
-                 </label> 
-             </td>
-         </tr>
-         <tr> 
-            <th scope="row">Border Color</th>     
-            <td><input type="text" name="attnbox_options[bcolor2]" value="<?php echo $options['bcolor2']; ?>" /></td>
-         </tr>
-         <tr>   
-            <th scope="row">Border Width</th>     
-            <td><input type="text" name="attnbox_options[bwidth2]" value="<?php echo $options['bwidth2']; ?>" /></td>
-         </tr>
-         
-          
+                  
+                 <input id="bcolor2" class="border_color"  type="text" name="attnbox_options[bcolor2]" value="<?php echo $options['bcolor2']; ?>" /> 
+                  
+            </td>
+           </tr> 
+           
+            <tr>    
+             <th scope="row"><input id="round2" type="checkbox" name="attnbox_options[enable_rounded2]" value="1" <?php checked('1', $options['enable_rounded2']); ?>> Rounded Corners: </th>
+              <td><input id="roundsize2" class="border_color" type="text" name="attnbox_options[roundsize2]" value="<?php echo $options['roundsize2']; ?>" /> </td> 
+          </tr> 
+          <tr>
+            <td><hr style="margin-top: 1px;"></td>
+          </tr>
+          <tr>
+            <th>Text Alignment</th>
+            <td>Left Align: <input type="radio"  <?php checked('left', $options['align2']); ?> name="attnbox_options[align2]" value="left" > 
+                Center Align: <input type="radio" <?php checked('center', $options['align2']); ?> name="attnbox_options[align2]" value="center"></td>
+          </tr>
+           
          </table>
          
          <p>&nbsp;</p>
          
-         <table id="group_3" class="form-table <?php echo $disabled_text_3; ?>">
-         
-          <tr>
-            <th><input id="3" name="attnbox_options[enable_div3]" type="checkbox" value="1" <?php checked('1', $options['enable_div3']); ?>> Enabled</th> 
-            <th scope="row" ><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_3]" value="<?php echo $options['box_name_3']; ?>" /></span></th>
-         </tr>
-      
-         <tr>
+          <table id="3" class="form-table">
+            
+        <tr valign="top">
+           <th><input  name="attnbox_options[enable_div3]" class="enable_check" type="checkbox" value="1" <?php checked('1', $options['enable_div3']); ?>> Name: </th> 
+           <th scope="row"><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_3]" value="<?php echo $options['box_name_3']; ?>" /></span></th>
+        </tr>    
+        <tr>
             <th scope="row" >Text Color</th>
-            <td><label><input type="text" name="attnbox_options[color3]" value="<?php echo $options['color3']; ?>" />
-                <span style="color:#666666;margin-left:40px;"> [ex: either "red" or "#ff0000"]</span>  </label>
+            <td><input  id="color3" type="text" name="attnbox_options[color3]" value="<?php echo $options['color3']; ?>" />
+               
            </td>
         </tr>
         <tr>
             <th scope="row" >Background Color</th>
-            <td><label><input type="text" name="attnbox_options[backcolor3]" value="<?php echo $options['backcolor3']; ?>" />
-                <span style="color:#666666;margin-left:40px;"> [ex: either "red" or "#ff0000"]</span>  </label>
+            <td><input id="backcolor3" type="text" name="attnbox_options[backcolor3]" value="<?php echo $options['backcolor3']; ?>" />
+                
            </td>
         </tr>
-            
-         <tr>    
-             <th scope="row">Border Style</th>
-             <td>
-                 <select name="attnbox_options[bstyle3]">
+        <tr>    
+            <th scope="row">Border: </th>
+            <td>
+                 
+                 <input id="bwidth3" size=6 type="text" name="attnbox_options[bwidth3]" value="<?php echo $options['bwidth3']; ?>" />
+                 
+                 <select id="bstyle3" class="border_style" name="attnbox_options[bstyle3]">
                     <option value='solid' <?php selected('solid', $options['bstyle3']); ?>>Solid</option>
                     <option value='dotted' <?php selected('dotted', $options['bstyle3']); ?>>Dotted</option>
                     <option value='dashed' <?php selected('dashed', $options['bstyle3']); ?>>Dashed</option>
@@ -246,46 +268,53 @@ function wp_box_div_carousel ( $post ) {
                     <option value='inset' <?php selected('inset', $options['bstyle3']); ?>>Inset</option>
                     <option value='outset' <?php selected('outset', $options['bstyle3']); ?>>Outset</option>
                   </select>
-             </td>
-         </tr>
-         <tr> 
-            <th scope="row">Border Color</th>     
-            <td><input type="text" name="attnbox_options[bcolor3]" value="<?php echo $options['bcolor3']; ?>" /></td>
-         </tr>
-         <tr>   
-            <th scope="row">Border Width</th>     
-            <td><input type="text" name="attnbox_options[bwidth3]" value="<?php echo $options['bwidth3']; ?>" /></td>
-         </tr>
-         
+                  
+                 <input id="bcolor3" class="border_color" type="text" name="attnbox_options[bcolor3]" value="<?php echo $options['bcolor3']; ?>" /> 
+                  
+            </td>
+          </tr>
+           <tr>    
+              <th scope="row"><input id="round3" type="checkbox" name="attnbox_options[enable_rounded3]" value="1" <?php checked('1', $options['enable_rounded3']); ?>> Rounded Corners: </th>
+               <td><input id="roundsize3" class="border_color" type="text" name="attnbox_options[roundsize3]" value="<?php echo $options['roundsize3']; ?>" /> </td> 
+          </tr> 
+          <tr>
+            <td><hr style="margin-top: 1px;"></td>
+          </tr>
+           <tr>
+            <th>Text Alignment</th>
+            <td>Left Align: <input type="radio"  <?php checked('left', $options['align3']); ?> name="attnbox_options[align3]" value="left" > 
+                Center Align: <input type="radio" <?php checked('center', $options['align3']); ?> name="attnbox_options[align3]" value="center"></td>
+          </tr>
           
          </table>
          
          <p>&nbsp;</p>
          
-         <table id="group_4" class="form-table <?php echo $disabled_text_4; ?>">
-         
-          <tr>
-            <th><input id="4" name="attnbox_options[enable_div4]" type="checkbox" value="1" <?php checked('1', $options['enable_div4']); ?>> Enabled</th> 
-            <th scope="row" ><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_4]" value="<?php echo $options['box_name_4']; ?>" /></span></th>
-         </tr>
-      
-         <tr>
+          <table  id="4" class="form-table">
+            
+        <tr valign="top">
+           <th><input  name="attnbox_options[enable_div4]" class="enable_check" type="checkbox" value="1" <?php checked('1', $options['enable_div4']); ?>> Name: </th> 
+           <th scope="row"><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_4]" value="<?php echo $options['box_name_4']; ?>" /></span></th>
+        </tr>    
+        <tr>
             <th scope="row" >Text Color</th>
-            <td><label><input type="text" name="attnbox_options[color4]" value="<?php echo $options['color4']; ?>" />
-                <span style="color:#666666;margin-left:40px;"> [ex: either "red" or "#ff0000"]</span>  </label>
+            <td><input  id="color4" type="text" name="attnbox_options[color4]" value="<?php echo $options['color4']; ?>" />
+               
            </td>
         </tr>
         <tr>
             <th scope="row" >Background Color</th>
-            <td><label><input type="text" name="attnbox_options[backcolor4]" value="<?php echo $options['backcolor4']; ?>" />
-                <span style="color:#666666;margin-left:40px;"> [ex: either "red" or "#ff0000"]</span>  </label>
+            <td><input id="backcolor4" type="text" name="attnbox_options[backcolor4]" value="<?php echo $options['backcolor4']; ?>" />
+                
            </td>
         </tr>
-            
-         <tr>    
-             <th scope="row">Border Style</th>
-             <td>
-                 <select name="attnbox_options[bstyle4]">
+        <tr>    
+            <th scope="row">Border: </th>
+            <td>
+                 
+                 <input id="bwidth4" size=6 type="text" name="attnbox_options[bwidth4]" value="<?php echo $options['bwidth4']; ?>" />
+                 
+                 <select id="bstyle4" class="border_style" name="attnbox_options[bstyle4]">
                     <option value='solid' <?php selected('solid', $options['bstyle4']); ?>>Solid</option>
                     <option value='dotted' <?php selected('dotted', $options['bstyle4']); ?>>Dotted</option>
                     <option value='dashed' <?php selected('dashed', $options['bstyle4']); ?>>Dashed</option>
@@ -295,22 +324,74 @@ function wp_box_div_carousel ( $post ) {
                     <option value='inset' <?php selected('inset', $options['bstyle4']); ?>>Inset</option>
                     <option value='outset' <?php selected('outset', $options['bstyle4']); ?>>Outset</option>
                   </select>
-             </td>
-         </tr>
-         <tr> 
-            <th scope="row">Border Color</th>     
-            <td><input type="text" name="attnbox_options[bcolor4]" value="<?php echo $options['bcolor4']; ?>" /></td>
-         </tr>
-         <tr>   
-            <th scope="row">Border Width</th>     
-            <td><input type="text" name="attnbox_options[bwidth4]" value="<?php echo $options['bwidth4']; ?>" /></td>
-         </tr>
-         
-      </table>
+                  
+                 <input id="bcolor4" class="border_color"  type="text" name="attnbox_options[bcolor4]" value="<?php echo $options['bcolor4']; ?>" /> 
+                  
+            </td>
+           </tr>
+            <tr>    
+              <th scope="row"><input id="round4" type="checkbox" name="attnbox_options[enable_rounded4]" value="1" <?php checked('1', $options['enable_rounded4']); ?>> Rounded Corners: </th>
+              <td><input id="roundsize4" class="border_color" type="text" name="attnbox_options[roundsize4]" value="<?php echo $options['roundsize4']; ?>" /> </td> 
+          </tr> 
+          <tr>
+            <td><hr style="margin-top: 1px;"></td>
+          </tr>
+           <tr>
+            <th>Text Alignment</th>
+            <td>Left Align: <input type="radio"  <?php checked('left', $options['align4']); ?> name="attnbox_options[align4]" value="left" > 
+                Center Align: <input type="radio" <?php checked('center', $options['align4']); ?> name="attnbox_options[align4]" value="center"></td>
+          </tr>
+         </table>
+        
              <p class="submit"> <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />  </p>
     
      </form>
     
+    </div>
+    
+    
+    </div> <!--main_settings_section-->
+    
+    <?php 
+   
+     foreach (range(1,4) as $indx) {
+          $var = "init_preview_box_styles" . $indx;
+          $$var = "color: " .  $options['color'.$indx] . "; "; 
+          $$var.= "background-color: " .  $options['backcolor'.$indx] . "; ";
+          $$var.= "border-width: " .  $options['bwidth'.$indx] . "; ";
+          $$var.= "border-style: " . $options['bstyle'.$indx] . "; ";
+          $$var.= "border-color: " . $options['bcolor'.$indx] . "; ";
+          $$var.= "text-align: " . $options['align'.$indx] . "; ";
+          
+          
+          if ( isset($options['enable_rounded'.$indx]) && ($options['enable_rounded'.$indx] == "1")) {
+            //echo "in here!";
+            $$var .= "-webkit-border-radius: " .  $options['roundsize'.$indx] . "; ";
+            $$var .= "-moz-border-radius: " .  $options['roundsize'.$indx] . "; ";
+            $$var .= "border-radius: " .  $options['roundsize'.$indx] . "; ";
+          }
+          
+     }
+    ?>
+    
+    <div id="preview_box_container">
+    
+        <div class="preview_box_div custom_attn_box" id="preview_1" style="<?php echo $init_preview_box_styles1; ?>" >
+          some text in my custom <?php echo $options['box_name_1']; ?> div.   
+       </div>
+       
+        <div class="preview_box_div custom_attn_box" id="preview_2" style="<?php echo $init_preview_box_styles2; ?>" >
+          some text in my custom <?php echo $options['box_name_2']; ?> div.   
+       </div>
+       
+        <div class="preview_box_div custom_attn_box" id="preview_3" style="<?php echo $init_preview_box_styles3; ?>" >
+           some text in my custom <?php echo $options['box_name_3']; ?> div.   
+       </div>
+       
+        <div class="preview_box_div custom_attn_box" id="preview_4" style="<?php echo $init_preview_box_styles4; ?>" >
+           some text in my custom <?php echo $options['box_name_4']; ?> div.   
+       </div>
+       
     </div>
 
 <?php }
@@ -321,11 +402,16 @@ function wp_box_div_carousel ( $post ) {
 
 
 function attnboxes_validate($input) {
-       
-    $input['bwidth1'] =  intval($input['bwidth1']);
-    $input['bwidth2'] =  intval($input['bwidth2']);
-    $input['bwidth3'] =  intval($input['bwidth3']);
-    $input['bwidth4'] =  intval($input['bwidth4']);
+  
+  foreach (range(1,4) as $indx) {
+    if (is_numeric($input['bwidth' . $indx])) {
+      $input['bwidth' . $indx] .= "px";
+    }
+    
+    if (is_numeric($input['roundsize' . $indx])) {
+      $input['roundsize' . $indx] .= "px";
+    }
+  } 
     
 	return $input;
 }
