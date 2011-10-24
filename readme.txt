@@ -10,6 +10,9 @@ A specialized code snippet tool that provides one click access, when editing pos
 
 == Description ==
 
+
+** PLEASE DO NOT USE WORDPRESS AUTO UPDATE.. IT WILL ERASE YOUR CURRENT DIV'S , SORRY YOU'LL NEED TO DOWNLOAD THE ZIP AND UPLOAD THE FILES THE MANUAL WAY UNTIL I RESOLVE THIS**
+
 Sometimes you just want to call out attention to a particular important message, or quote, or a collection of links, in a
 bright yellow box, or similar, in a Blog post.  And you might do this a lot in your blog entries. 
 
@@ -25,6 +28,8 @@ Currently the screen shots don't seem to be showing for this plugin, on the page
 == Installation ==
 
 Instructions for installing the WP Attention Boxes Plugin.
+  
+  [ Note: If you're upgrading, please first de-activate this plugin. ]
 
 1. Download and extract the Plugin zip file.
 2. Upload the folder containing the Plugin files to your WordPress Plugins folder (usually ../wp-content/plugins/ folder).
@@ -33,11 +38,18 @@ Instructions for installing the WP Attention Boxes Plugin.
 5. There will be four default DIV's already there which may serve your purpose, however of course change them as you need.
 
 == Frequently Asked Questions ==
+= The preview box in the setting page doesn't seem to reflect the change I just made =
+Yes, this is how the Javascript onchange event works.. after you change a CSS element, you'll need to tab out of the field - then the preview box will update itself.
+
+= I notice, with this version 0.4, that I now need to specify "px" in the border width =
+Yes, this way the more knowledgeable users in CSS can use other measurement units such as "em".   If you do, by chance, enter in just a number by itself, I added a validation routine that automatically tacks on "px".  But you can use px, em, or whatever.
+Bottom Line: You shouldn't need to do anything when  you upgrade, install routine should automatically upgrade your current border settings to "1px" (if it was just 1, you get the drift)
+    
 = What if I use the Visual Editor when creating pages/posts ? =
 This plugin only works when in the Html editor - i.e. this is basically for users who prefer the HTML tab of the editor, or at least switch to it for tools like this one.
 
 = Ok, but when I switch to the HTML Editor after doing a lot of work in the Visual Editor, sometimes I lose some formatting =
-My advice, to be able to use tools in the Html editor (whether it's this plugin or not) might be to start every brand new blog post in the Html editor, and add all of the code using those tools first, and then switch to the Visual Editor where you stay until the post is finished and published. This way you're not going back and forth.
+My advice, to be able to use tools in the Html editor (whether it's this plugin or not) might be to start every brand new blog post with the Html tab active, use the tools you need on that toolbar, and then switch to the Visual Editor where you stay until the post is finished and published. This way you're not going back and forth.
 
 = Does the plugin change the content in the WordPress database? =
 
@@ -48,27 +60,21 @@ No other changes to the database.
 Yes, the next major version will provide the ability to store different styles of your own image-based (or non-imaged based) bullet lists
 
 = Why only 4 =
-Good question, the next version will provide 10
+Good question, a future major version will provide 10
+
+
 
 == Screenshots ==
 
 1. Html editor bar after new buttons are added (if the buttons consume too much space, you can disable one or more, or name them as short as you want)
-2. This is the options page, used to define the styling of each of the 4 DIV's.
+2. This is the options page, used to define the styling of each of the 4 DIV's. 
+   NEW on this page: The floating preview div, and the design of this page designs
 3. Actual stylized box examples (just as an example of the variation of styles, just the border type alone could be: solid, dotted, dashed, double, groove, ridge, inset, outset )
-4. This new feature was a non-brainer to add, and makes this plugin much more useful - not sure why I didn't add this to the initial 0.1 version .. it was very easy code-wise
+4. Simply a convenient "display meta-box" that shows up underneath where you do your actual post or page editing, so you don't have to return to the settings to remember what they look like.
 
 == Changelog ==
 
-= 0.2 =
-* fix bug .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 = 0.3 =
-* added a convenient visual reference section that shows you what your DIV's look like w/o having to save your post and switch to this plugin's Settings page
-
-
-== Upgrade Notice ==
-
-= 0.3 =
-Added meta-box to post/page editing page to display the custom div's. This makes this plugin way more easier to use.
-
+* Added a convenient visual reference section that shows you what your DIV's look like w/o having to save your post and switch to this plugin's Settings page
 = 0.2 =
-Fixes a bug that affects the css syntax
+* Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
