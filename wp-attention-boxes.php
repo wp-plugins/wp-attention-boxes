@@ -41,9 +41,7 @@ class Attention_Box {
         add_filter('admin_footer', 'wp_attnbox_add_quicktag');
     }
    
-    function attnbox_delete_plugin_options() {
-	    delete_option('wpcf_options');
-    }
+  
    
     function attnbox_add_defaults() {
         $ar = get_option('attnbox_options');
