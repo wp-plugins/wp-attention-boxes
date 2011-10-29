@@ -11,7 +11,6 @@ A specialized code snippet tool that provides one click access, when editing pos
 == Description ==
 
 
-** PLEASE DO NOT USE WORDPRESS AUTO UPDATE.. IT WILL ERASE YOUR CURRENT DIV'S , SORRY YOU'LL NEED TO DOWNLOAD THE ZIP AND UPLOAD THE FILES THE MANUAL WAY UNTIL I RESOLVE THIS**
 
 Sometimes you just want to call out attention to a particular important message, or quote, or a collection of links, in a
 bright yellow box, or similar, in a Blog post.  And you might do this a lot in your blog entries. 
