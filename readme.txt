@@ -3,7 +3,7 @@ Contributors: pythoPhpSteve
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
 Tested up to: 3.21
-Stable tag: 0.3
+Stable tag: 0.4
 
 A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
@@ -71,12 +71,14 @@ Good question, a future major version will provide 10
 4. Simply a convenient "display meta-box" that shows up underneath where you do your actual post or page editing, so you don't have to return to the settings to remember what they look like.
 
 == Changelog ==
-
+= 0.4 =
+ Rounded Corners and a Preview Box so that you what your DIVs look like before leaving the Settings page
 = 0.3 =
 * Added a convenient visual reference section that shows you what your DIV's look like w/o having to save your post and switch to this plugin's Settings page
 = 0.2 =
 * Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
+
 = 0.4 =
 This upgrade provides a must-have feature that I urge you to upgrade for -- the live previewing of your Attention Div's as you make changes on the Settings page. (also rounded corners)
