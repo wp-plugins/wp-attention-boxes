@@ -20,14 +20,11 @@ This plugin keeps a snippet library of these stylized DIV's, and makes them imme
 
 The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
 
-Currently the screen shots don't seem to be showing for this plugin, on the page you're looking at, so you can see the screenshots at the site above
-
 
 == Installation ==
 
 Instructions for installing the WP Attention Boxes Plugin.
   
-  [ Note: If you're upgrading, please first de-activate this plugin. ]
 
 1. Download and extract the Plugin zip file.
 2. Upload the folder containing the Plugin files to your WordPress Plugins folder (usually ../wp-content/plugins/ folder).
@@ -43,7 +40,8 @@ Please clear your Browser Cache, so that the new CSS styles will overwrite the o
 Yes, this is how the Javascript onchange event works.. after you change a CSS element, you'll need to tab out of the field - then the preview box will update itself.
 
 = I notice, with this version 0.4, that I now need to specify "px" in the border width =
-Yes, this way the more knowledgeable users in CSS can use other measurement units such as "em".   If you do, by chance, enter in just a number by itself, I added a validation routine that automatically tacks on "px".  But you can use px, em, or whatever.
+Yes, this way the more knowledgeable users in CSS can use other measurement units such as "em".  
+ If you do, by chance, enter in just a number by itself, I added a validation routine that automatically tacks on "px".  But you can use px, em, or whatever.
 Bottom Line: You shouldn't need to do anything when  you upgrade, install routine should automatically upgrade your current border settings to "1px" (if it was just 1, you get the drift)
     
 = What if I use the Visual Editor when creating pages/posts ? =
@@ -82,6 +80,5 @@ Good question, a future major version will provide 10
 * Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
-
 = 0.4 =
 This upgrade provides a must-have feature that I urge you to upgrade for -- the live previewing of your Attention Div's as you make changes on the Settings page. (also rounded corners)
