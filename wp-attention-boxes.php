@@ -26,75 +26,87 @@ Copyright 2010 Steve Bailey (email steveswdev@gmail.com)
 
 */
 
-include "attn_boxes_admin_menu.php";
+include_once "includes/wp-attention-includes.inc";
 
-new Attention_Box;  # looks weird, but don't need to assign the instantiated object to a variable. 
-                    # The functions are merely being collected into classes in order to remove the possibility of 
-                    # duplicate function call conflicts with other plugins
+include_once "attn_boxes_admin_menu.php";
 
-class Attention_Box {
 
-    function __construct() {
-        new Attention_Box_Options;    // starts necessary options Initialization hooks located in Options page's class, via its own __construct
-        add_action( 'wp_print_styles', array( &$this,'enqueue_my_styles') );
-        register_activation_hook(__FILE__, array( &$this,'attnbox_add_defaults' ));
-        add_filter('admin_footer', 'wp_attnbox_add_quicktag');
-    }
+add_action( 'wp_print_styles', 'wp_attn_box_enqueue_my_styles' );
+register_activation_hook(__FILE__, 'attnbox_register_hook');
+add_filter('admin_footer', 'wp_attnbox_add_quicktag');
+
+
+
+
+wp_attn_box_run_upgrade_procedure();
    
-    function attnbox_delete_plugin_options() {
-	    delete_option('wpcf_options');
-    }
-   
-    function attnbox_add_defaults() {
-        $ar = get_option('attnbox_options');
-        if (!is_array($ar)) {
-            $temp_arr = array("box_name_1" => "Yellow Update", "box_name_2" => "DownloadDiv", 
-                              "box_name_3" => "Quote Div", "box_name_4" => "Summary Box",
-                              "enable_div1" => "1", "enable_div2" => "1", "enable_div3" => "1", "enable_div4" => "1",
-                              "color1" => "black", "backcolor1" => "yellow", "bstyle1" => "solid", "bwidth1" => "2px","bcolor1" => "red",
-                              "color2" => "black", "backcolor2" => "#FFFACD", "bstyle2" => "dashed", "bwidth2" => "2px","bcolor2" => "black",
-                              "color3" => "black", "backcolor3" => "#FFFFFF", "bstyle3" => "ridge", "bwidth3" => "4px","bcolor3" => "black",
-                              "color4" => "black", "backcolor4" => "#EEEEEE", "bstyle4" => "solid", "bwidth4" => "1px","bcolor4" => "#BBBBBB",
-                              "enable_rounded1" => "0", "enable_rounded2" => "0", "enable_rounded3" => "0", "enable_rounded4" => "0",
-                              "roundsize1" => "10px", "roundsize2" => "10px", "roundsize3" => "10px", "roundsize4" => "10px",
-                              "align1" => "center", "align2" => "center", "align3" => "center", "align4" => "center",
-                              );
-            update_option('attnbox_options', $temp_arr);
-        } else {
-           // first, add default rounded corner widths if they're not already set, but don't actually enable rounded
-           // also, add default alignment of center
-           foreach ( range(1,4) as $indx ) {
-             if (empty( $ar['roundsize'.$indx] )) {
-               $ar['roundsize'.$indx] = "10px";
-             }
-             if (empty( $ar['align'.$indx] )) {
-               $ar['align'.$indx] = "center";
-             }
-           }
-           // then, make sure user is not using a version of this plugin that using plain integers for border widths
-           // if so, add a default "px"
-           foreach ( range(1,4) as $indx ) {
-             if (is_numeric( $ar['bwidth'.$indx] )) {
-               $ar['bwidth'.$indx] .= "px";
-             }
-           }
-           update_option('attnbox_options', $ar);   
+function attnbox_register_hook() {
+ 
+  global $wp_version; 
+  
+  if (version_compare($wp_version, "2.7", "<")) { 
+    deactivate_plugins(basename(__FILE__)); // Deactivate our plugin
+    wp_die("This plugin requires WordPress version 2.7 or higher.");
+  }
+
+}
+
+function wp_attn_box_run_upgrade_procedure() {
+  global $wp_attention_box_version;
+
+  $pre_four_version = array("0.1", "0.2", "0.3", "", NULL);
+  $options = get_option('attnbox_options'); 
+  $attn_box_version = get_option('wp_attention_box_version');
+  
+//error_log("line 62: " . $attn_box_version);
+
+  if (is_array($options)) {
+  if ( (empty($attn_box_version)) || ($attn_box_version != $wp_attention_box_version )) {
+  
+      if ((in_array($attn_box_version, $pre_four_version))) {
+    
+          // first, add default rounded corner widths if they're not already set, but don't actually enable rounded
+          // also, add default alignment of center
+        foreach ( range(1,4) as $indx ) {
+          if (empty( $options['roundsize'.$indx] )) {
+            $options['roundsize'.$indx] = "10px";
+          }
+          if (empty( $options['align'.$indx] )) {
+            $options['align'.$indx] = "center";
+          }
+       }
+       // then, make sure user is not using a version of this plugin that using plain integers for border widths
+        // if so, add a default "px"
+      foreach ( range(1,4) as $indx ) {
+        if (is_numeric( $options['bwidth'.$indx] )) {
+          $options['bwidth'.$indx] .= "px";
         }
-	}
-
-   // The Wordpress-preferred method of adding CSS needed by plugin.
-   // Basically making this plugin's styles.css available to posts   
-   function enqueue_my_styles() {
-      $myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/styles.css';
-        $myStyleFile = WP_PLUGIN_DIR . '/wp-attention-boxes/css/styles.css';
-        if ( file_exists($myStyleFile) ) {
-            wp_register_style('my_wpattn_box_StyleSheets', $myStyleUrl);
-            wp_enqueue_style( 'my_wpattn_box_StyleSheets');
-        }
-   }
+      }
+      update_option('attnbox_options', $options);   
+          
+     }
+      update_option(wp_attention_box_version, $wp_attention_box_version);
+    }
+} // if options array exists
+else {
+  update_option(wp_attention_box_version, $wp_attention_box_version);
+}
+}
+   
    
 
-} // end of class
+// The Wordpress-preferred method of adding CSS needed by plugin.
+// Basically making this plugin's styles.css available to posts   
+function wp_attn_box_enqueue_my_styles() {
+  $myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/styles.css';
+    $myStyleFile = WP_PLUGIN_DIR . '/wp-attention-boxes/css/styles.css';
+    if ( file_exists($myStyleFile) ) {
+        wp_register_style('my_wpattn_box_StyleSheets', $myStyleUrl);
+        wp_enqueue_style( 'my_wpattn_box_StyleSheets');
+    }
+}
+   
+
 
 // This hairy looking function which opens and closes php tags over and over, is what generates the necessary javascript that adds the buttons
 // to the edit post page.
@@ -166,7 +178,12 @@ function wp_attnbox2_handler() {
     border_color = "<?php echo $options['bcolor2']; ?>";
     border_style = "<?php echo $options['bstyle2']; ?>";
     textalign = "<?php echo $options['align2']; ?>";
-    roundenabled = "<?php echo $options['enable_rounded2']; ?>";
+    roundenabled = 0;
+    roundenabled = "<?php if (isset($options['enable_rounded2']))
+                             echo $options['enable_rounded2'];
+                           else 
+                             echo "0";
+                         ?>";
     borderradius = "<?php echo $options['roundsize2']; ?>";
     
     styled_div = '\n<div class="custom_attn_box" style="border: ';
@@ -195,7 +212,12 @@ function wp_attnbox3_handler() {
     border_color = "<?php echo $options['bcolor3']; ?>";
     border_style = "<?php echo $options['bstyle3']; ?>";
     textalign = "<?php echo $options['align3']; ?>";
-    roundenabled = "<?php echo $options['enable_rounded3']; ?>";
+    roundenabled = 0;
+    roundenabled = "<?php if (isset($options['enable_rounded3']))
+                             echo $options['enable_rounded3'];
+                           else 
+                             echo "0";
+                         ?>";
     borderradius = "<?php echo $options['roundsize3']; ?>";
     
     styled_div = '\n<div class="custom_attn_box" style="border: ';
@@ -225,7 +247,12 @@ function wp_attnbox4_handler() {
     border_color = "<?php echo $options['bcolor4']; ?>";
     border_style = "<?php echo $options['bstyle4']; ?>";
     textalign = "<?php echo $options['align4']; ?>";
-    roundenabled = "<?php echo $options['enable_rounded4']; ?>";
+    roundenabled = 0;
+    roundenabled = "<?php if (isset($options['enable_rounded4']))
+                             echo $options['enable_rounded4'];
+                           else 
+                             echo "0";
+                         ?>";
     borderradius = "<?php echo $options['roundsize4']; ?>";
     
     styled_div = '\n<div class="custom_attn_box" style="border: ';

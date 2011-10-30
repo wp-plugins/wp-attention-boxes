@@ -1,5 +1,13 @@
 
-
+#first_message_div {
+  border: 3px solid green;
+  background: yellow;
+  width: 700px !important;
+  color: red;
+  font-size: 14px;
+  font-family: tahoma, verdana; 
+  
+}
 
 .form-table th {
     width: 35px;
@@ -21,8 +29,15 @@ table.disabled_text tr th .name_input {
 }
 
 #main_settings_section {
-  float: left;
+  /*float: left;*/
   width: 67%;
+}
+
+fieldset#first_time_defaults {
+  border: 2px solid blue;
+  margin: 5px;
+  width: 250px;
+  padding: 10px;
 }
 
 div#preview_box_container {

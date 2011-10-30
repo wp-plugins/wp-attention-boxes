@@ -10,6 +10,7 @@ A specialized code snippet tool that provides one click access, when editing pos
 
 == Description ==
 
+
 Sometimes you just want to call out attention to a particular important message, or quote, or a collection of links, in a
 bright yellow box, or similar, in a Blog post.  And you might do this a lot in your blog entries. 
 
@@ -71,12 +72,13 @@ Good question, a future major version will provide 10
 
 == Changelog ==
 = 0.4 =
-* Added 2 major enhancements: 1.) In Settings page,as you make changes to each div, you can see that change immediately in a Preview of your DIV, floating at the top of the page, for the wyswyg benefit.  2.) Rounded Corners !
+ Rounded Corners and a Preview Box so that you what your DIVs look like before leaving the Settings page
 = 0.3 =
 * Added a convenient visual reference section that shows you what your DIV's look like w/o having to save your post and switch to this plugin's Settings page
 = 0.2 =
 * Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
+
 = 0.4 =
 This upgrade provides a must-have feature that I urge you to upgrade for -- the live previewing of your Attention Div's as you make changes on the Settings page. (also rounded corners)
