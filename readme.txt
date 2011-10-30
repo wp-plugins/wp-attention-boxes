@@ -7,24 +7,24 @@ Stable tag: 0.4
 
 A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
-
 == Description ==
-
 
 Sometimes you just want to call out attention to a particular important message, or quote, or a collection of links, in a
 bright yellow box, or similar, in a Blog post.  And you might do this a lot in your blog entries. 
 
 This plugin keeps a snippet library of these stylized DIV's, and makes them immediately accessible in your edit post page by clicking a button on your html-mode toolbar.
 
-
-
 The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
-
 
 == Installation ==
 
-Instructions for installing the WP Attention Boxes Plugin.
-  
+
+* You can use Zip-uploader feature if your version of Wordpress has it
+1. Download the Plugin as Zip file, but DON'T extract the Zip File
+2. In your Admin, Go to Plugins/ Add New / and then click Upload from the choices .. browse for the Zip that you downloaded
+3. Click Activate
+
+* OR do it the manual way:
 
 1. Download and extract the Plugin zip file.
 2. Upload the folder containing the Plugin files to your WordPress Plugins folder (usually ../wp-content/plugins/ folder).
@@ -34,7 +34,7 @@ Instructions for installing the WP Attention Boxes Plugin.
 
 == Frequently Asked Questions ==
 = The Newly designed Settings Page doesn't look like the one in the screenshot =
-Please clear your Browser Cache, so that the new CSS styles will overwrite the ones that are still cached by your browser.
+Please click the browser refresh button (f5 if you're on Windows), and if that doesn't do it, clear your Browser Cache, so that the new CSS styles will overwrite the ones that are still cached by your browser.
 
 = The preview box in the setting page doesn't seem to reflect the change I just made =
 Yes, this is how the Javascript onchange event works.. after you change a CSS element, you'll need to tab out of the field - then the preview box will update itself.
@@ -71,12 +71,15 @@ Good question, a future major version will provide 10
 3. Actual stylized box examples (just as an example of the variation of styles, just the border type alone could be: solid, dotted, dashed, double, groove, ridge, inset, outset )
 4. Simply a convenient "display meta-box" that shows up underneath where you do your actual post or page editing, so you don't have to return to the settings to remember what they look like.
 
+
 == Changelog ==
 = 0.4 =
-* Added support for Rounded Corners 
+* Added support for Rounded Corners
 * A Preview Box so that you know what your DIVs look like before leaving the Settings page
+
 = 0.3 =
 * Added a convenient visual reference section that shows you what your DIV's look like w/o having to save your post and switch to this plugin's Settings page
+
 = 0.2 =
 * Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
