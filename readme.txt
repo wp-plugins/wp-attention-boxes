@@ -3,7 +3,7 @@ Contributors: pythoPhpSteve
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
 Tested up to: 3.21
-Stable tag: 0.4
+Stable tag: 0.3
 
 A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
