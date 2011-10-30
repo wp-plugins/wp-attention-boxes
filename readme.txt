@@ -36,6 +36,9 @@ Instructions for installing the WP Attention Boxes Plugin.
 5. There will be four default DIV's already there which may serve your purpose, however of course change them as you need.
 
 == Frequently Asked Questions ==
+= The Newly designed Settings Page doesn't look like the one in the screenshot =
+Please clear your Browser Cache, so that the new CSS styles will overwrite the ones that are still cached by your browser.
+
 = The preview box in the setting page doesn't seem to reflect the change I just made =
 Yes, this is how the Javascript onchange event works.. after you change a CSS element, you'll need to tab out of the field - then the preview box will update itself.
 
