@@ -73,7 +73,8 @@ Good question, a future major version will provide 10
 
 == Changelog ==
 = 0.4 =
- Rounded Corners and a Preview Box so that you what your DIVs look like before leaving the Settings page
+* Added support for Rounded Corners 
+* A Preview Box so that you know what your DIVs look like before leaving the Settings page
 = 0.3 =
 * Added a convenient visual reference section that shows you what your DIV's look like w/o having to save your post and switch to this plugin's Settings page
 = 0.2 =
