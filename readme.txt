@@ -3,7 +3,7 @@ Contributors: pythoPhpSteve
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
 Tested up to: 3.21
-Stable tag: 0.4
+Stable tag: 0.4.1
 
 A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
@@ -73,6 +73,8 @@ Good question, a future major version will provide 10
 
 
 == Changelog ==
+= 0.4.1 =
+Fixed a bug in the CSS code that is generated when rounded corners are enabled for any of the DIV's.. Specifically, removed an extra quote in the style that might prevent the rounded corner from working.
 = 0.4 =
 * Added support for Rounded Corners
 * A Preview Box so that you know what your DIVs look like before leaving the Settings page
@@ -84,5 +86,5 @@ Good question, a future major version will provide 10
 * Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
-= 0.4 =
-This upgrade provides a must-have feature that I urge you to upgrade for -- the live previewing of your Attention Div's as you make changes on the Settings page. (also rounded corners)
+= 0.4.1 =
+Please upgrade to resolve a CSS bug fix (especially if you use rounded corners)
