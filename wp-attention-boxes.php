@@ -3,7 +3,7 @@
 Plugin Name: WP Attention Boxes
 Plugin URI: http://stevebailey.biz/blog/apps/
 Description: Instantly add four of your most commonly used CSS-styled DIV's for different purposes, such as bringing attention to an important update, or just bringing visual focus to a quote..
-Version: 0.4
+Version: 0.4.1
 Author: Steve Bailey
 Author URI: http://stevebailey.biz/
 License: GPL
@@ -142,12 +142,12 @@ function wp_attnbox1_handler() {
     border_color = "<?php echo $options['bcolor1']; ?>";
     border_style = "<?php echo $options['bstyle1']; ?>";
     textalign = "<?php echo $options['align1']; ?>";
-    roundenabled = 0;
-    roundenabled = "<?php if (isset($options['enable_rounded1']))
+   
+    roundenabled = <?php if (isset($options['enable_rounded1']))
                              echo $options['enable_rounded1'];
                            else 
                              echo "0";
-                         ?>";
+                         ?>;
     borderradius = "<?php echo $options['roundsize1']; ?>";
     
     styled_div = '\n<div class="custom_attn_box" style="border: ';
@@ -157,14 +157,13 @@ function wp_attnbox1_handler() {
     styled_div += ' color: ' + textcolor + ';';
     styled_div += ' background-color: ' + backcolor + ';';
     
-    if (roundenabled == "1") {
+    if (roundenabled == 1) {
       styled_div += ' -webkit-border-radius: ' + borderradius + ';';
       styled_div += ' -moz-border-radius: ' + borderradius + ';';
       styled_div += ' border-radius: ' + borderradius + ';';
     }
     
     styled_div += ' text-align: ' + textalign + ';"';
-    
     styled_div += ">your text</div>\n";
     myValue = styled_div;
 	edInsertContent(edCanvas, myValue);
@@ -178,12 +177,12 @@ function wp_attnbox2_handler() {
     border_color = "<?php echo $options['bcolor2']; ?>";
     border_style = "<?php echo $options['bstyle2']; ?>";
     textalign = "<?php echo $options['align2']; ?>";
-    roundenabled = 0;
-    roundenabled = "<?php if (isset($options['enable_rounded2']))
+   
+    roundenabled = <?php if (isset($options['enable_rounded2']))
                              echo $options['enable_rounded2'];
                            else 
                              echo "0";
-                         ?>";
+                         ?>;
     borderradius = "<?php echo $options['roundsize2']; ?>";
     
     styled_div = '\n<div class="custom_attn_box" style="border: ';
@@ -191,8 +190,8 @@ function wp_attnbox2_handler() {
     styled_div += ' ' + border_style;
     styled_div += ' ' + border_color + ';';
     styled_div += ' color: ' + textcolor + ';';
-    styled_div += ' background-color: ' + backcolor + ';"';
-     if (roundenabled == "1") {
+    styled_div += ' background-color: ' + backcolor + ';';
+     if (roundenabled == 1) {
       styled_div += ' -webkit-border-radius: ' + borderradius + ';';
       styled_div += ' -moz-border-radius: ' + borderradius + ';';
       styled_div += ' border-radius: ' + borderradius + ';';
@@ -212,12 +211,12 @@ function wp_attnbox3_handler() {
     border_color = "<?php echo $options['bcolor3']; ?>";
     border_style = "<?php echo $options['bstyle3']; ?>";
     textalign = "<?php echo $options['align3']; ?>";
-    roundenabled = 0;
-    roundenabled = "<?php if (isset($options['enable_rounded3']))
+  
+    roundenabled = <?php if (isset($options['enable_rounded3']))
                              echo $options['enable_rounded3'];
                            else 
                              echo "0";
-                         ?>";
+                         ?>;
     borderradius = "<?php echo $options['roundsize3']; ?>";
     
     styled_div = '\n<div class="custom_attn_box" style="border: ';
@@ -225,8 +224,8 @@ function wp_attnbox3_handler() {
     styled_div += ' ' + border_style;
     styled_div += ' ' + border_color + ';';
     styled_div += ' color: ' + textcolor + ';';
-    styled_div += ' background-color: ' + backcolor + ';"';
-     if (roundenabled == "1") {
+    styled_div += ' background-color: ' + backcolor + ';';
+     if (roundenabled == 1) {
       styled_div += ' -webkit-border-radius: ' + borderradius + ';';
       styled_div += ' -moz-border-radius: ' + borderradius + ';';
       styled_div += ' border-radius: ' + borderradius + ';';
@@ -260,8 +259,8 @@ function wp_attnbox4_handler() {
      styled_div += ' ' + border_style;
     styled_div += ' ' + border_color + ';';
     styled_div += ' color: ' + textcolor + ';';
-    styled_div += ' background-color: ' + backcolor + ';"';
-    if (roundenabled == "1") {
+    styled_div += ' background-color: ' + backcolor + ';';
+    if (roundenabled == 1) {
       styled_div += ' -webkit-border-radius: ' + borderradius + ';';
       styled_div += ' -moz-border-radius: ' + borderradius + ';';
       styled_div += ' border-radius: ' + borderradius + ';';
