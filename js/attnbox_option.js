@@ -95,6 +95,7 @@ jQuery(document).ready(function () {
              jQuery("#bwidth2").val("2px");
              jQuery("#bstyle2").val("dashed");
              jQuery("#bcolor2").val("brown");
+             jQuery("#roundsize2").val("10px");
              
              jQuery("#boxname_2").trigger('change');
              
@@ -117,6 +118,7 @@ jQuery(document).ready(function () {
              jQuery("#bwidth4").val("3px");
              jQuery("#bstyle4").val("solid");
              jQuery("#bcolor4").val("#BBBBBB");
+             jQuery("#roundsize4").val("10px");
              
              
              jQuery("#boxname_4").trigger('change');

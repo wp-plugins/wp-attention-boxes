@@ -1,9 +1,5 @@
 <?php
 
-//$first_time_message = 0;
-
-//$wp_attention_box_version = '0.3';
-
 
 // Hook up some handler functions at start of plugin load
 // -------------------------------------------------------
@@ -11,7 +7,7 @@
 add_action('admin_menu', 'attn_box_plugin_menu');
 add_action( 'admin_init','attnbox_register_settings');
 add_action( 'admin_init', 'wp_attn_boxes_add_div_carousel');
-wp_register_script( 'myPluginScript', WP_PLUGIN_URL . '/wp-attention-boxes/js/attnbox_option.js' );
+wp_register_script( 'wp_attention_boxes_plugin_script', WP_PLUGIN_URL . '/wp-attention-boxes/js/attnbox_option.js' );
 
 /* Adds a box to the main column on the Post and Page edit screens */
 function wp_attn_boxes_add_div_carousel() {
@@ -47,9 +43,6 @@ function wp_attn_box_enqueue_metabox_styles() {
 /* Prints the box content */
 function wp_box_div_carousel ( $post ) {
 
-  // Use nonce for verification
-  // wp_nonce_field( plugin_basename( __FILE__ ), 'myplugin_noncename' );
-
   // print the configured boxes ________________________________
 
   echo '<div class="outer_div_post_page">';
@@ -74,8 +67,6 @@ function wp_box_div_carousel ( $post ) {
     
     function attn_box_plugin_menu() {
  
-        global $first_time_message;
-     
         $mypage = add_options_page('WP Attention Boxes Options Page','Attention Div Boxes', 
                          'administrator', __FILE__, 'attn_box_plugin_options');
         add_action( "admin_print_scripts-$mypage", 'attnbox_admin_head' );
@@ -85,7 +76,7 @@ function wp_box_div_carousel ( $post ) {
     // ---------------------------------------------------------------------------------------------------
     function attnbox_admin_head() {
         $plugindir = get_settings('home').'/wp-content/plugins/'.dirname(plugin_basename(__FILE__));
-    	wp_enqueue_script('myPluginScript');
+    	wp_enqueue_script('wp_attention_boxes_plugin_script');
     	echo '<link rel="stylesheet" href="' . $plugindir . '/css/attnbox_admin_styles.css" type="text/css" />';
     	echo '<link rel="stylesheet" href="' . $plugindir . '/css/styles.css" type="text/css" />';
     }
@@ -119,11 +110,12 @@ function wp_box_div_carousel ( $post ) {
           
         <div id="first_message_div" class="custom_attn_box" 
                    color: black; background-color: #E0FFFF;">
-                   Looks like you just activated this plugin. <a id="close_first_time_message" href="#">Close</a><br><br>
-                   <?php echo $img_tag1; ?>You can either start creating the DIV's by simply entering your own CSS settings, or <br> 
+                   <span id="ft_message_title">Looks like you just activated this plugin.</span> <a id="close_first_time_message" href="#"><strong>Close</strong></a><br><br>
+                   <?php echo $img_tag1; ?>You can either start creating the DIV's by simply entering your own CSS settings, <br>
+                   == or == <br>
                    <?php echo $img_tag1; ?>You can use the Auto-Populate Button at the very bottom of this page, to create a set of Starter Div's to begin with.
                    
-                   <br><br> Either way, have fun, and blog your heart out.
+                   <br><br> Either way, have fun and blog away (and don't let Resistance slow down your work  - read War of Art by Stephen Pressfield for more on that)
          </div>
         <?php
            $options['enable_div1'] = "1";

@@ -3,7 +3,7 @@ Contributors: pythoPhpSteve
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
 Tested up to: 3.21
-Stable tag: 0.4.1
+Stable tag: 0.4.2
 
 A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
@@ -36,13 +36,13 @@ The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-att
 = The Newly designed Settings Page doesn't look like the one in the screenshot =
 Please click the browser refresh button (f5 if you're on Windows), and if that doesn't do it, clear your Browser Cache, so that the new CSS styles will overwrite the ones that are still cached by your browser.
 
-= The preview box in the setting page doesn't seem to reflect the change I just made =
+= The preview box in the new 0.4 setting page doesn't seem to reflect the change I just made =
 Yes, this is how the Javascript onchange event works.. after you change a CSS element, you'll need to tab out of the field - then the preview box will update itself.
 
 = I notice, with this version 0.4, that I now need to specify "px" in the border width =
 Yes, this way the more knowledgeable users in CSS can use other measurement units such as "em".  
  If you do, by chance, enter in just a number by itself, I added a validation routine that automatically tacks on "px".  But you can use px, em, or whatever.
-Bottom Line: You shouldn't need to do anything when  you upgrade, install routine should automatically upgrade your current border settings to "1px" (if it was just 1, you get the drift)
+Bottom Line: You won't need to do anything when you upgrade to 0.4 - the install routine should automatically upgrade your current border settings to "1px" (if it was just 1, you get the drift)
     
 = What if I use the Visual Editor when creating pages/posts ? =
 This plugin only works when in the Html editor - i.e. this is basically for users who prefer the HTML tab of the editor, or at least switch to it for tools like this one.
@@ -52,8 +52,9 @@ My advice, to be able to use tools in the Html editor (whether it's this plugin 
 
 = Does the plugin change the content in the WordPress database? =
 
- Yes, it adds a single record to the wp_options table. This stores all of the custom DIV's.
-No other changes to the database. 
+ Yes, it adds 2 record to the wp_options table. One of them stores all of the custom DIV's.
+ The other simple stores the version number of this plugin.
+
 
 = Do you plan on adding the ability to store snippets for other types of html elements? =
 Yes, the next major version will provide the ability to store different styles of your own image-based (or non-imaged based) bullet lists
@@ -73,6 +74,8 @@ Good question, a future major version will provide 10
 
 
 == Changelog ==
+= 0.4.2 =
+  Internal variable changes to ensure that the javascript handler names don't conflict with other plugins, and some other minor changes
 = 0.4.1 =
 Fixed a bug in the CSS code that is generated when rounded corners are enabled for any of the DIV's.. Specifically, removed an extra quote in the style that might prevent the rounded corner from working.
 = 0.4 =
