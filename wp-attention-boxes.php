@@ -54,7 +54,7 @@ function attnbox_register_hook() {
 function wp_attn_box_run_upgrade_procedure() {
   global $wp_attention_box_version;
 
-  $pre_four_version = array("0.1", "0.2", "0.3", "0.4", "0.4.1", NULL);
+  $pre_four_version = array("0.1", "0.2", "0.3", NULL);
   $options = get_option('attnbox_options'); 
   $attn_box_version = get_option('wp_attention_box_version');
   
