@@ -1,41 +1,36 @@
 <?php
 
-class Attention_Box_Options {
 
-    // Hook up some handler functions at start of plugin load
-    // -------------------------------------------------------
-    function __construct() {
-        add_action('admin_menu', array( &$this,'attn_box_plugin_menu'));
-        add_action( 'admin_init', array( &$this,'attnbox_register_settings' ));
-        add_action( 'admin_init', array( &$this,'wp_attn_boxes_add_div_carousel'));
-        wp_register_script( 'myPluginScript', WP_PLUGIN_URL . '/wp-attention-boxes/js/attnbox_option.js' );
-    }
-    
-    
-    
+// Hook up some handler functions at start of plugin load
+// -------------------------------------------------------
+
+add_action('admin_menu', 'attn_box_plugin_menu');
+add_action( 'admin_init','attnbox_register_settings');
+add_action( 'admin_init', 'wp_attn_boxes_add_div_carousel');
+wp_register_script( 'wp_attention_boxes_plugin_script', WP_PLUGIN_URL . '/wp-attention-boxes/js/attnbox_option.js' );
 
 /* Adds a box to the main column on the Post and Page edit screens */
 function wp_attn_boxes_add_div_carousel() {
-   $this->enqueue_metabox_styles();
+   wp_attn_box_enqueue_metabox_styles();
 
     add_meta_box( 
         'attnbox_sectionid',
         __( 'View Your Attention Boxes', 'attnbox_textdomain' ),
-        array($this, 'wp_box_div_carousel'),
+        'wp_box_div_carousel',
         'post' 
     );
     
      add_meta_box( 
         'attnbox_sectionid',
         __( 'View Your Attention Boxes', 'attnbox_textdomain' ),
-        array($this, 'wp_box_div_carousel'),
+        'wp_box_div_carousel',
         'page' 
     );
 }
 
 
 
-function enqueue_metabox_styles() {
+function wp_attn_box_enqueue_metabox_styles() {
       $myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/attnbox_postmetabox_styles.css';
         $myStyleFile = WP_PLUGIN_DIR . '/wp-attention-boxes/css/attnbox_postmetabox_styles.css';
         if ( file_exists($myStyleFile) ) {
@@ -47,10 +42,6 @@ function enqueue_metabox_styles() {
 
 /* Prints the box content */
 function wp_box_div_carousel ( $post ) {
-
-
-  // Use nonce for verification
-  // wp_nonce_field( plugin_basename( __FILE__ ), 'myplugin_noncename' );
 
   // print the configured boxes ________________________________
 
@@ -75,16 +66,17 @@ function wp_box_div_carousel ( $post ) {
  }
     
     function attn_box_plugin_menu() {
+ 
         $mypage = add_options_page('WP Attention Boxes Options Page','Attention Div Boxes', 
-                         'administrator', __FILE__, array( &$this,'attn_box_plugin_options'));
-        add_action( "admin_print_scripts-$mypage", array( &$this,'attnbox_admin_head') );
+                         'administrator', __FILE__, 'attn_box_plugin_options');
+        add_action( "admin_print_scripts-$mypage", 'attnbox_admin_head' );
     }
 
     // Tell Wordpress to load a custom CSS file which only be used for this plugin, while using the Options Page
     // ---------------------------------------------------------------------------------------------------
     function attnbox_admin_head() {
         $plugindir = get_settings('home').'/wp-content/plugins/'.dirname(plugin_basename(__FILE__));
-    	wp_enqueue_script('myPluginScript');
+    	wp_enqueue_script('wp_attention_boxes_plugin_script');
     	echo '<link rel="stylesheet" href="' . $plugindir . '/css/attnbox_admin_styles.css" type="text/css" />';
     	echo '<link rel="stylesheet" href="' . $plugindir . '/css/styles.css" type="text/css" />';
     }
@@ -95,6 +87,7 @@ function wp_box_div_carousel ( $post ) {
     }
 
     function attn_box_plugin_options() {
+   
   ?>
         
         <div class="wrap">
@@ -108,11 +101,29 @@ function wp_box_div_carousel ( $post ) {
         <form method="post" action="options.php">
         <?php settings_fields('attnbox_user_options'); ?>
         <?php $options = get_option('attnbox_options'); 
-        
-        /*-webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;*/
-        
+         if ((!$options) && !is_array($options)) { 
+          $plugindir = get_settings('home').'/wp-content/plugins/'.dirname(plugin_basename(__FILE__));
+    	  $img_tag1 = '<img style="margin-right: 8px;" src="' . $plugindir . '/images/1.gif">';
+    	  $img_tag2 = '<img style="margin-right: 8px;" src="' . $plugindir . '/images/2.gif">';
+    	  
+            ?>
+          
+        <div id="first_message_div" class="custom_attn_box" 
+                   color: black; background-color: #E0FFFF;">
+                   <span id="ft_message_title">Looks like you just activated this plugin.</span> <a id="close_first_time_message" href="#"><strong>Close</strong></a><br><br>
+                   <?php echo $img_tag1; ?>You can either start creating the DIV's by simply entering your own CSS settings, <br>
+                   == or == <br>
+                   <?php echo $img_tag1; ?>You can use the Auto-Populate Button at the very bottom of this page, to create a set of Starter Div's to begin with.
+                   
+                   <br><br> Either way, have fun and blog away (and don't let Resistance slow down your work  - read War of Art by Stephen Pressfield for more on that)
+         </div>
+        <?php
+           $options['enable_div1'] = "1";
+           $options['enable_div2'] = "1";
+           $options['enable_div3'] = "1";
+           $options['enable_div4'] = "1";
+         } 
+       
         
         ?>    
         <table id="1" class="form-table" cellpadding="0" cellspacing="0">
@@ -181,7 +192,7 @@ function wp_box_div_carousel ( $post ) {
             
         <tr valign="top">
            <th> <input  name="attnbox_options[enable_div2]" class="enable_check" type="checkbox" value="1" <?php checked('1', $options['enable_div2']); ?>> Name: </th> 
-           <th scope="row"><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_2]" value="<?php echo $options['box_name_2']; ?>" /></span></th>
+           <th scope="row"><span><input id="boxname_2" type="text" size="45" class="name_input" name="attnbox_options[box_name_2]" value="<?php echo $options['box_name_2']; ?>" /></span></th>
         </tr>    
         <tr>
             <th scope="row" >Text Color</th>
@@ -238,7 +249,7 @@ function wp_box_div_carousel ( $post ) {
             
         <tr valign="top">
            <th><input  name="attnbox_options[enable_div3]" class="enable_check" type="checkbox" value="1" <?php checked('1', $options['enable_div3']); ?>> Name: </th> 
-           <th scope="row"><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_3]" value="<?php echo $options['box_name_3']; ?>" /></span></th>
+           <th scope="row"><span><input id="boxname_3" type="text" size="45" class="name_input" name="attnbox_options[box_name_3]" value="<?php echo $options['box_name_3']; ?>" /></span></th>
         </tr>    
         <tr>
             <th scope="row" >Text Color</th>
@@ -294,7 +305,7 @@ function wp_box_div_carousel ( $post ) {
             
         <tr valign="top">
            <th><input  name="attnbox_options[enable_div4]" class="enable_check" type="checkbox" value="1" <?php checked('1', $options['enable_div4']); ?>> Name: </th> 
-           <th scope="row"><span><input type="text" size="45" class="name_input" name="attnbox_options[box_name_4]" value="<?php echo $options['box_name_4']; ?>" /></span></th>
+           <th scope="row"><span><input id="boxname_4" type="text" size="45" class="name_input" name="attnbox_options[box_name_4]" value="<?php echo $options['box_name_4']; ?>" /></span></th>
         </tr>    
         <tr>
             <th scope="row" >Text Color</th>
@@ -349,6 +360,14 @@ function wp_box_div_carousel ( $post ) {
     
     </div>
     
+    <?php settings_fields('attnbox_user_set_defaults'); ?>
+    
+    <fieldset id="first_time_defaults">
+    <legend><b>For First Time Activation (Optional)</b></legend>
+    <input id="set_div_default" type="button" value="Set Defaults for all DIV Boxes's">
+    </fieldset>
+    
+    
     
     </div> <!--main_settings_section-->
     
@@ -377,33 +396,32 @@ function wp_box_div_carousel ( $post ) {
     <div id="preview_box_container">
     
         <div class="preview_box_div custom_attn_box" id="preview_1" style="<?php echo $init_preview_box_styles1; ?>" >
-          some text in my custom <?php echo $options['box_name_1']; ?> div.   
+          some text in my custom <strong><?php echo $options['box_name_1']; ?></strong>
        </div>
        
         <div class="preview_box_div custom_attn_box" id="preview_2" style="<?php echo $init_preview_box_styles2; ?>" >
-          some text in my custom <?php echo $options['box_name_2']; ?> div.   
+          some text in my custom <strong><?php echo $options['box_name_2']; ?> </strong>
        </div>
        
         <div class="preview_box_div custom_attn_box" id="preview_3" style="<?php echo $init_preview_box_styles3; ?>" >
-           some text in my custom <?php echo $options['box_name_3']; ?> div.   
+           some text in my custom <strong><?php echo $options['box_name_3']; ?></strong>
        </div>
        
         <div class="preview_box_div custom_attn_box" id="preview_4" style="<?php echo $init_preview_box_styles4; ?>" >
-           some text in my custom <?php echo $options['box_name_4']; ?> div.   
+           some text in my custom <strong><?php echo $options['box_name_4']; ?> </strong>
        </div>
        
     </div>
 
 <?php }
 
-} 
 
 
 
 
 function attnboxes_validate($input) {
   
-  foreach (range(1,4) as $indx) {
+foreach (range(1,4) as $indx) {
     if (is_numeric($input['bwidth' . $indx])) {
       $input['bwidth' . $indx] .= "px";
     }
