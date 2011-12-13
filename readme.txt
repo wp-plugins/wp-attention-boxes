@@ -8,12 +8,9 @@ Stable tag: 0.4.2
 A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
 == Description ==
+<strong>NOTICE</strong> - This plugin's HTML toolbar custom buttons will not work under the new Wordpress 3.3. A fix will be uploaded within a week
 
-
-NOTICE - This plugin's HTML toolbar custom buttons will not work under the new Wordpress 3.3.
-         A fix will be uploaded within a week.
-
-                 ========================
+<hr>                 
 
 Sometimes you just want to call out attention to a particular important message, or quote, or a collection of links, in a
 bright yellow box, or similar, in a Blog post.  And you might do this a lot in your blog entries. 
