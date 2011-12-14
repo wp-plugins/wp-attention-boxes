@@ -8,7 +8,7 @@ Stable tag: 0.4.2
 A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
 == Description ==
-<b>NOTICE</b> - 11/14/2011 - This plugin's HTML toolbar custom buttons will not work under the new Wordpress 3.3. A fix will be uploaded within a week
+<b>NOTICE</b> - 12/14/2011 - This plugin's HTML toolbar custom buttons will not work under the new Wordpress 3.3. A fix will be uploaded within a week
 
 <hr>                 
 
