@@ -1,5 +1,26 @@
+#close_first_time_message {
+  float: right;
+}
 
+#ft_message_title {
+  font-size: 1.3em;
+  font-family: system;
+  color: blue;
+  font-weight: bold;
+}
 
+#first_message_div {
+  border: 3px solid green;
+  background: yellow;
+  width: 700px !important;
+  color: red;
+  font-size: 14px;
+  font-family: tahoma, verdana; 
+  -webkit-border-radius: 12px; 
+  -moz-border-radius: 12px; 
+  border-radius: 12px;
+  
+}
 
 .form-table th {
     width: 35px;
@@ -21,8 +42,15 @@ table.disabled_text tr th .name_input {
 }
 
 #main_settings_section {
-  float: left;
+  /*float: left;*/
   width: 67%;
+}
+
+fieldset#first_time_defaults {
+  border: 2px solid blue;
+  margin: 5px;
+  width: 250px;
+  padding: 10px;
 }
 
 div#preview_box_container {
