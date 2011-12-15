@@ -1,70 +1,15 @@
 <?php
 
-
 // Hook up some handler functions at start of plugin load
 // -------------------------------------------------------
 
-add_action('admin_menu', 'attn_box_plugin_menu');
+add_action( 'admin_menu', 'attn_box_plugin_menu');
 add_action( 'admin_init','attnbox_register_settings');
-add_action( 'admin_init', 'wp_attn_boxes_add_div_carousel');
+
 wp_register_script( 'wp_attention_boxes_plugin_script', WP_PLUGIN_URL . '/wp-attention-boxes/js/attnbox_option.js' );
 
 /* Adds a box to the main column on the Post and Page edit screens */
-function wp_attn_boxes_add_div_carousel() {
-   wp_attn_box_enqueue_metabox_styles();
 
-    add_meta_box( 
-        'attnbox_sectionid',
-        __( 'View Your Attention Boxes', 'attnbox_textdomain' ),
-        'wp_box_div_carousel',
-        'post' 
-    );
-    
-     add_meta_box( 
-        'attnbox_sectionid',
-        __( 'View Your Attention Boxes', 'attnbox_textdomain' ),
-        'wp_box_div_carousel',
-        'page' 
-    );
-}
-
-
-
-function wp_attn_box_enqueue_metabox_styles() {
-      $myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/attnbox_postmetabox_styles.css';
-        $myStyleFile = WP_PLUGIN_DIR . '/wp-attention-boxes/css/attnbox_postmetabox_styles.css';
-        if ( file_exists($myStyleFile) ) {
-            wp_register_style('my_wpattn_box_metabox_StyleSheets', $myStyleUrl);
-            wp_enqueue_style( 'my_wpattn_box_metabox_StyleSheets');
-        }
-   }
-
-
-/* Prints the box content */
-function wp_box_div_carousel ( $post ) {
-
-  // print the configured boxes ________________________________
-
-  echo '<div class="outer_div_post_page">';
-  $options = get_option('attnbox_options'); 
-  foreach (range(1,4) as $indx) {
-   $style = 'style="color:' . $options['color' . $indx] . ';';
-   $style .= 'background-color:' . $options['backcolor' . $indx] . ';';
-   $style .= 'border:' . $options['bwidth' . $indx];
-   $style .= ' ' . $options['bstyle' . $indx];
-   $style .= ' ' . $options['bcolor' . $indx] . ';';
-   if (isset($options['enable_rounded' . $indx]) && ($options['enable_rounded'.$indx] == "1")) {
-     $style .= ' -webkit-border-radius: ' . $options['roundsize' . $indx] . ';';
-     $style .= ' -moz-border-radius: ' . $options['roundsize' . $indx] . ';';
-     $style .= ' border-radius: ' . $options['roundsize' . $indx] . ';';
-   }
-   $style .= ' text-align: ' . $options['align' . $indx] . ';"';
-   echo '<div ' . $style .  '>' . $options['box_name_' . $indx] . '</div>';
-  }
-    
-  echo '</div>'; 
- }
-    
     function attn_box_plugin_menu() {
  
         $mypage = add_options_page('WP Attention Boxes Options Page','Attention Div Boxes', 
@@ -72,6 +17,13 @@ function wp_box_div_carousel ( $post ) {
         add_action( "admin_print_scripts-$mypage", 'attnbox_admin_head' );
     }
 
+
+    function attnbox_register_settings(){
+       register_setting( 'attnbox_user_options', 'attnbox_options', 'attnboxes_validate' );
+    }
+
+
+   
     // Tell Wordpress to load a custom CSS file which only be used for this plugin, while using the Options Page
     // ---------------------------------------------------------------------------------------------------
     function attnbox_admin_head() {
@@ -81,10 +33,6 @@ function wp_box_div_carousel ( $post ) {
     	echo '<link rel="stylesheet" href="' . $plugindir . '/css/styles.css" type="text/css" />';
     }
 
-
-    function attnbox_register_settings(){
-       register_setting( 'attnbox_user_options', 'attnbox_options', 'attnboxes_validate' );
-    }
 
     function attn_box_plugin_options() {
    

@@ -2,15 +2,12 @@
 Contributors: pythoPhpSteve
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
-Tested up to: 3.21
-Stable tag: 0.4.2
+Tested up to: 3.3
+Stable tag: 0.5.0
 
 A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
 == Description ==
-<b>NOTICE</b> - 12/14/2011 - This plugin's HTML toolbar custom buttons will not work under the new Wordpress 3.3. A fix will be uploaded within a week
-
-<hr>                 
 
 Sometimes you just want to call out attention to a particular important message, or quote, or a collection of links, in a
 bright yellow box, or similar, in a Blog post.  And you might do this a lot in your blog entries. 
@@ -20,7 +17,6 @@ This plugin keeps a snippet library of these stylized DIV's, and makes them imme
 The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
 
 == Installation ==
-
 
 * You can use Zip-uploader feature if your version of Wordpress has it
 1. Download the Plugin as Zip file, but DON'T extract the Zip File
@@ -55,32 +51,31 @@ My advice, to be able to use tools in the Html editor (whether it's this plugin 
 
 = Does the plugin change the content in the WordPress database? =
 
- Yes, it adds 2 record to the wp_options table. One of them stores all of the custom DIV's.
+Yes, it adds 2 record to the wp_options table. One of them stores all of the custom DIV's.
  The other simple stores the version number of this plugin.
 
 
 = Do you plan on adding the ability to store snippets for other types of html elements? =
 Yes, the next major version will provide the ability to store different styles of your own image-based (or non-imaged based) bullet lists
 
-= Why only 4 =
-Good question, a future major version will provide 10
-
-
 
 == Screenshots ==
 
-1. Html editor bar after new buttons are added (if the buttons consume too much space, you can disable one or more, or name them as short as you want)
+1. This "display meta-box" underneath the Editor is where you choose which snippet to add to your post, via simply clicking on the DIV you want.
 2. This is the options page, used to define the styling of each of the 4 DIV's. 
-   NEW on this page: The floating preview div, and the design of this page designs
 3. Actual stylized box examples (just as an example of the variation of styles, just the border type alone could be: solid, dotted, dashed, double, groove, ridge, inset, outset )
-4. Simply a convenient "display meta-box" that shows up underneath where you do your actual post or page editing, so you don't have to return to the settings to remember what they look like.
 
 
 == Changelog ==
+= 0.5.0 =
+  Removed the buttons from the Post/Page edit toolbar .. the DIV snippets are now added to your post via simply clicking on your chosen DIV directly from the Meta-Box below the Editor
+
 = 0.4.2 =
   Internal variable changes to ensure that the javascript handler names don't conflict with other plugins, and some other minor changes
+
 = 0.4.1 =
 Fixed a bug in the CSS code that is generated when rounded corners are enabled for any of the DIV's.. Specifically, removed an extra quote in the style that might prevent the rounded corner from working.
+
 = 0.4 =
 * Added support for Rounded Corners
 * A Preview Box so that you know what your DIVs look like before leaving the Settings page
@@ -92,5 +87,6 @@ Fixed a bug in the CSS code that is generated when rounded corners are enabled f
 * Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
-= 0.4.1 =
-Please upgrade to resolve a CSS bug fix (especially if you use rounded corners)
+= 0.5.0 =
+This is not an optional upgrade if you have upgraded to Wordpress version 3.3. On V 3.3, the toolbar buttons are missing, thus breaking this plugin's functionality.
+Regardless of the WP version you're using, I'd recommend the upgrade - even below V 3.3, your HTML toolbar will be uncluttered by the buttons and this makes it easier for a future version to have many more DIV snippets.
