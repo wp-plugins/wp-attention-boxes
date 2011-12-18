@@ -12,7 +12,7 @@ A specialized code snippet tool that provides one click access, when editing pos
 Sometimes you just want to call out attention to a particular important message, or quote, or a collection of links, in a
 bright yellow box, or similar, in a Blog post.  And you might do this a lot in your blog entries. 
 
-This plugin keeps a snippet library of these stylized DIV's, and makes them immediately accessible in your edit post page by clicking a button on your html-mode toolbar.
+This plugin keeps a snippet library of these stylized DIV's, and makes them immediately accessible in your edit post page by clicking one of your DIV's that is lined up underneath your editor.
 
 The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
 
@@ -32,6 +32,9 @@ The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-att
 5. There will be four default DIV's already there which may serve your purpose, however of course change them as you need.
 
 == Frequently Asked Questions ==
+= When I click on one the DIV's on my Editor Page, there seems to be no response - the snippet is not added. =
+Plesae make sure that you click once directly inside your editor (preferable exactly at the point where you want the DIV to be inserted) before you click on the DIV in the "Your Attention Boxes" Meta Box.
+
 = The Newly designed Settings Page doesn't look like the one in the screenshot =
 Please click the browser refresh button (f5 if you're on Windows), and if that doesn't do it, clear your Browser Cache, so that the new CSS styles will overwrite the ones that are still cached by your browser.
 
