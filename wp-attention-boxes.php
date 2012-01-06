@@ -31,7 +31,6 @@ include_once "includes/wp-attention-includes.inc";
 include_once "attn_boxes_admin_menu.php";
 
 add_action( 'admin_init', 'wp_attn_boxes_add_div_carousel');
-//add_action( 'admin_init', 'carousel');
 add_filter('admin_footer', 'wp_attnbox_add_js_insert_handlers');
 add_action( 'wp_print_styles', 'wp_attn_box_enqueue_my_styles' );
 register_activation_hook(__FILE__, 'attnbox_register_hook');
