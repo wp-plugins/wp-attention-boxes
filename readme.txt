@@ -9,6 +9,7 @@ A specialized code snippet tool that provides one click access, when editing pos
 
 == Description ==
 
+ 
 Sometimes you just want to call out attention to a particular important message, or quote, or a collection of links, in a
 bright yellow box, or similar, in a Blog post.  And you might do this a lot in your blog entries. 
 
@@ -16,7 +17,34 @@ This plugin keeps a snippet library of these stylized DIV's, and makes them imme
 
 The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
 
+== IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 ==
+  When you go to Settings Page after upgrading, and you get a white screen with just the message:
+  
+         - You are not authorized to access this page -
+         
+    To resolve this, please go to your URL bar and 
+       manually change the underscores in attn_boxes_admin_menu.php 
+                           to dashes:     attn-boxes-admin-menu.php
+
+ After doing this and hitting Enter, it won't be necessary do this again
+                          
+
 == Installation ==
+
+IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 FROM EARLIER VERSION
+  When you go to Settings Page after upgrading, and you get a white screen with just the message:
+  
+         - You are not authorized to access this page -
+         
+    To resolve this, please go to your URL bar and 
+       manually change the underscores in attn_boxes_admin_menu.php 
+                           to dashes:     attn-boxes-admin-menu.php
+
+ After doing this and hitting Enter, it won't be necessary do this again
+                           
+--- End of Update Notice ---
+
+
 
 * You can use Zip-uploader feature if your version of Wordpress has it
 1. Download the Plugin as Zip file, but DON'T extract the Zip File
