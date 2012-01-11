@@ -1,4 +1,8 @@
-#close_first_time_message {
+.close-link {
+  cursor: pointer;
+}
+
+#close_first_time_message, #close_upgrade_message {
   float: right;
 }
 
@@ -9,7 +13,7 @@
   font-weight: bold;
 }
 
-#first_message_div {
+#first_message_div,  #upgraded_first_message_div {
   border: 3px solid green;
   background: yellow;
   width: 700px !important;
@@ -23,7 +27,7 @@
 }
 
 .form-table th {
-    width: 35px;
+    width: 85px;
     padding-right: 1px;
 }
 
@@ -42,15 +46,46 @@ table.disabled_text tr th .name_input {
 }
 
 #main_settings_section {
-  /*float: left;*/
+  
   width: 67%;
+}
+
+
+
+fieldset#first_time_defaults legend {
+  font-size: 16px;
+  color: #e12e11;
+  
 }
 
 fieldset#first_time_defaults {
   border: 2px solid blue;
-  margin: 5px;
-  width: 250px;
+  margin: 15px;
+  width: 600px;
   padding: 10px;
+  text-align: center;
+  
+}
+
+fieldset#first_time_defaults div {
+  float: left;
+  margin-left: 10px;
+  border: 3px solid gray;
+  background-color: #F5F5F5;
+  padding: 10px;
+  text-align: center;
+  height: 100px;
+  
+}
+
+fieldset#first_time_defaults div span {
+  color: blue;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+#existing_user, #new_user {
+  color: yellow;
 }
 
 div#preview_box_container {
@@ -69,8 +104,15 @@ div#preview_box_container {
   display: none;
   top: 20px;
   left: 700px;
+  margin: 10px auto;
+  padding: 4px 4px 4px 6px;
 }
 
+.close-link {
+  position: absolute;
+  top: 60px;
+  left: 380px;
+}
 
 .form-table {
   border-collapse: collapse;
@@ -81,13 +123,7 @@ div#preview_box_container {
   line-height: .9em;
 }
 
-/*.form-table td,
-.form-table th {
-  margin-bottom: 9px;
-  padding: 0 2px;
-  line-height: 10px;
-  font-size: 1px;
-}*/
+
 
 .border_color {
   width: 100px;
@@ -96,3 +132,4 @@ div#preview_box_container {
 .border_style {
   width: 120px;
 }
+

@@ -3,7 +3,7 @@
 Plugin Name: WP Attention Boxes
 Plugin URI: http://stevebailey.biz/blog/wp-attention-boxes
 Description: Instantly add four of your most commonly used CSS-styled DIV's for different purposes, such as bringing attention to an important update, or just bringing visual focus to a quote..
-Version: 0.5.0
+Version: 0.6.0
 Author: Steve Bailey
 Author URI: http://stevebailey.biz/
 License: GPL
@@ -23,36 +23,30 @@ Copyright 2010 Steve Bailey (email steveswdev@gmail.com)
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
+			
 */
 
 include_once "includes/wp-attention-includes.inc";
 
-include_once "attn_boxes_admin_menu.php";
+include_once "attn-boxes-admin-menu.php";
 
 add_action( 'admin_init', 'wp_attn_boxes_add_div_carousel');
-add_filter('admin_footer', 'wp_attnbox_add_js_insert_handlers');
-add_action( 'wp_print_styles', 'wp_attn_box_enqueue_my_styles' );
+add_action('wp_enqueue_scripts', 'wp_attn_box_enqueue_my_styles');
 register_activation_hook(__FILE__, 'attnbox_register_hook');
 
-
-
-function wp_attn_box_enqueue_metabox_styles() {
-	$myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/attnbox_postmetabox_styles.css';
-	$myStyleFile = WP_PLUGIN_DIR . '/wp-attention-boxes/css/attnbox_postmetabox_styles.css';
-	if ( file_exists($myStyleFile) ) {
-		wp_register_style('my_wpattn_box_metabox_StyleSheets', $myStyleUrl);
-		wp_enqueue_style( 'my_wpattn_box_metabox_StyleSheets');
-	}
-}
+wp_attn_box_run_upgrade_procedure();
 
 
 function wp_box_div_carousel ( $post ) {
-
-  // print the configured boxes ________________________________
-	echo '<div  class="outer_div_post_page">';
-	$options = get_option('attnbox_options'); 
-	foreach (range(1,4) as $indx) {
+?>
+<div id="makeMeScrollable">
+		<div class="scrollingHotSpotLeft"></div>
+		<div class="scrollingHotSpotRight"></div>
+		<div class="scrollWrapper">
+			<div class="scrollableArea">
+	<?php		
+             $options = get_option('attnbox_options'); 
+	       foreach (range(1,10) as $indx) {
 		$style = 'style="color:' . $options['color' . $indx] . ';';
 		$style .= 'background-color:' . $options['backcolor' . $indx] . ';';
 		$style .= 'border:' . $options['bwidth' . $indx];
@@ -64,15 +58,23 @@ function wp_box_div_carousel ( $post ) {
 			$style .= ' border-radius: ' . $options['roundsize' . $indx] . ';';
 		}
 		$style .= ' text-align: ' . $options['align' . $indx] . ';"';
-		echo '<div class="meta_box_size" onclick="wp_attnbox_handler_' . $indx . '()"' . $style .  '>' . $options['box_name_' . $indx] . '</div>';
+		echo '<div class="custom_attn_box_metabox"  onclick="wp_attnbox_handler_' . $indx . '()"' . $style .  '>' . $options['box_name_' . $indx] . '</div>';
 	}
+	?>
   
-	echo '</div>'; 
+   
+				
+			</div>
+
+		</div>
+	</div>
+
+<?php 
 }
-    
+
 
 function wp_attn_boxes_add_div_carousel() {
-	wp_attn_box_enqueue_metabox_styles();
+
 	add_meta_box( 
 		'attnbox_sectionid',
 		__( 'Your Attention Boxes', 'attnbox_textdomain' ),
@@ -88,7 +90,7 @@ function wp_attn_boxes_add_div_carousel() {
 	);
 }
 
-wp_attn_box_run_upgrade_procedure();
+
    
 function attnbox_register_hook() {
 	global $wp_version; 
@@ -101,16 +103,19 @@ function attnbox_register_hook() {
 function wp_attn_box_run_upgrade_procedure() {
 	global $wp_attention_box_version;
 
+	$pre_six_version = array("0.1", "0.2", "0.3", "0.4", "0.4.1", "0.4.2", "0.5.0", NULL);
 	$pre_four_version = array("0.1", "0.2", "0.3", NULL);
 	$options = get_option('attnbox_options'); 
 	$attn_box_version = get_option('wp_attention_box_version');
+ 	$update_opt = false;
  
 	if (is_array($options)) {
-		if ( (empty($attn_box_version)) || ($attn_box_version != $wp_attention_box_version )) {
+		if ( (empty($attn_box_version)) || ($attn_box_version != "0.6.0" )) {
 			if ((in_array($attn_box_version, $pre_four_version))) {
-	    		// first, add default rounded corner widths if they're not already set, but don't actually enable rounded
-				// also, add default alignment of center
-				foreach ( range(1,4) as $indx ) {
+				foreach ( range( 1, 4) as $indx ) {
+					if (is_numeric( $options['bwidth'.$indx] )) {
+	 					$options['bwidth'.$indx] .= "px";
+					}
 					if (empty( $options['roundsize'.$indx] )) {
 						$options['roundsize'.$indx] = "10px";
 					}
@@ -118,22 +123,40 @@ function wp_attn_box_run_upgrade_procedure() {
 						$options['align'.$indx] = "center";
 					}
 				}
-			// then, make sure user is not using a version of this plugin that using plain integers for border widths
-			// if so, add a default "px"
-				foreach ( range(1,4) as $indx ) {
-					if (is_numeric( $options['bwidth'.$indx] )) {
-						$options['bwidth'.$indx] .= "px";
-					}
-				}
-				update_option('attnbox_options', $options);   
+				$update_opt = true;  
 			}
-			update_option('wp_attention_box_version', $wp_attention_box_version);
+			
+			if (in_array($attn_box_version, $pre_six_version)) {
+				// Add default rounded corner widths if they're not already set, but don't actually enable rounded
+				// also, add default alignment of center
+				foreach ( range( 5, 10) as $indx ) {
+					if (empty( $options['roundsize'.$indx] )) {
+						$options['roundsize'.$indx] = "10px";
+					}
+					if (empty( $options['align'.$indx] )) {
+						$options['align'.$indx] = "center";
+					}
+					if ( is_numeric( $options['bwidth'.$indx] )) {
+   						$options['bwidth'.$indx] .= "px";
+   					}
+   				}
+   				$update_opt = true;
+			}
+			
+			if ( $update_opt ) {
+			  update_option('attnbox_options', $options);
+			}
+			
+			update_option('wp_attention_box_version', "0.6.0");
+			
+			update_option('wp_attention_box_upgrade_to_6', 1);
 		}
 
 
 	} // if options array exists
 	else {
-		update_option('wp_attention_box_version', $wp_attention_box_version);
+		update_option('wp_attention_box_version', "0.6.0");
+		update_option('wp_attention_box_upgrade_to_6', 0);
 	}
 }
    
@@ -157,7 +180,7 @@ function wp_attn_box_enqueue_my_styles() {
 function wp_attnbox_add_js_insert_handlers() {
 	if (strpos($_SERVER['REQUEST_URI'], 'post.php') || strpos($_SERVER['REQUEST_URI'], 'post-new.php') || strpos($_SERVER['REQUEST_URI'], 'page-new.php') || strpos($_SERVER['REQUEST_URI'], 'page.php')) {
 		$options = get_option('attnbox_options'); 
-		foreach (range(1,4) as $indx) {
+		foreach (range(1,10) as $indx) {
 		?>
             <script type="text/javascript">//<![CDATA[
 			function wp_attnbox_handler_<?php echo $indx; ?>() {
