@@ -5,7 +5,7 @@ Requires at least: 2.7
 Tested up to: 3.3.1
 Stable tag: 0.6.0
 
-A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
+A specialized code snippet tool that provides one click access, when editing posts, to 10 different CSS-styled DIVs for custom purposes.
 
 == Description ==
 
@@ -17,18 +17,19 @@ This plugin keeps a snippet library of these stylized DIV's, and makes them imme
 
 The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
 
+Thank you to the creator of the Smooth Div Scroll Plugin, which is used in this plugin:  http://www.smoothdivscroll.com/
+
 == IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 ==
   When you go to Settings Page after upgrading, and you get a white screen with just the message:
   
-         - You are not authorized to access this page -
+         " You are not authorized to access this page "
          
     To resolve this, please go to your URL bar and 
        manually change the underscores in attn_boxes_admin_menu.php 
                            to dashes:     attn-boxes-admin-menu.php
 
  After doing this and hitting Enter, it won't be necessary do this again
-                          
-
+                       
 == Installation ==
 
 IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 FROM EARLIER VERSION
@@ -57,23 +58,12 @@ IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 FROM EARLIER VERSION
 2. Upload the folder containing the Plugin files to your WordPress Plugins folder (usually ../wp-content/plugins/ folder).
 3. Activate the Plugin via the 'Plugins' menu in WordPress.
 4. Once activated you go to the Plugin options by clicking the 'Attention Div Boxes' link under the 'Settings' menu.
-5. There will be four default DIV's already there which may serve your purpose, however of course change them as you need.
+5. If you're brand new to this plugin, all 10 of the DIV settings will be blank waiting for your amazing CSS creativity, or you could click a button of the page, and it will pre-fill your settings with some samples that I created.
 
 == Frequently Asked Questions ==
 = When I click on one the DIV's on my Editor Page, there seems to be no response - the snippet is not added. =
 Plesae make sure that you click once directly inside your editor (preferable exactly at the point where you want the DIV to be inserted) before you click on the DIV in the "Your Attention Boxes" Meta Box.
 
-= The Newly designed Settings Page doesn't look like the one in the screenshot =
-Please click the browser refresh button (f5 if you're on Windows), and if that doesn't do it, clear your Browser Cache, so that the new CSS styles will overwrite the ones that are still cached by your browser.
-
-= The preview box in the new 0.4 setting page doesn't seem to reflect the change I just made =
-Yes, this is how the Javascript onchange event works.. after you change a CSS element, you'll need to tab out of the field - then the preview box will update itself.
-
-= I notice, with this version 0.4, that I now need to specify "px" in the border width =
-Yes, this way the more knowledgeable users in CSS can use other measurement units such as "em".  
- If you do, by chance, enter in just a number by itself, I added a validation routine that automatically tacks on "px".  But you can use px, em, or whatever.
-Bottom Line: You won't need to do anything when you upgrade to 0.4 - the install routine should automatically upgrade your current border settings to "1px" (if it was just 1, you get the drift)
-    
 = What if I use the Visual Editor when creating pages/posts ? =
 This plugin only works when in the Html editor - i.e. this is basically for users who prefer the HTML tab of the editor, or at least switch to it for tools like this one.
 
@@ -81,10 +71,8 @@ This plugin only works when in the Html editor - i.e. this is basically for user
 My advice, to be able to use tools in the Html editor (whether it's this plugin or not) might be to start every brand new blog post with the Html tab active, use the tools you need on that toolbar, and then switch to the Visual Editor where you stay until the post is finished and published. This way you're not going back and forth.
 
 = Does the plugin change the content in the WordPress database? =
-
 Yes, it adds 2 record to the wp_options table. One of them stores all of the custom DIV's.
  The other simple stores the version number of this plugin.
-
 
 = Do you plan on adding the ability to store snippets for other types of html elements? =
 Yes, the next major version will provide the ability to store different styles of your own image-based (or non-imaged based) bullet lists
@@ -93,7 +81,7 @@ Yes, the next major version will provide the ability to store different styles o
 == Screenshots ==
 
 1. This "display meta-box" underneath the Editor is where you choose which snippet to add to your post, via simply clicking on the DIV you want.
-2. This is the options page, used to define the styling of each of the 4 DIV's. 
+2. This is the options page, used to define the styling of each of the 10 DIV's. 
 3. Actual stylized box examples (just as an example of the variation of styles, just the border type alone could be: solid, dotted, dashed, double, groove, ridge, inset, outset )
 
 
