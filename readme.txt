@@ -2,8 +2,8 @@
 Contributors: pythoPhpSteve
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
-Tested up to: 3.3
-Stable tag: 0.5.0
+Tested up to: 3.3.1
+Stable tag: 0.6.0
 
 A specialized code snippet tool that provides one click access, when editing posts, to 4 different CSS-styled DIVs for custom purposes.
 
@@ -70,6 +70,9 @@ Yes, the next major version will provide the ability to store different styles o
 
 
 == Changelog ==
+= 0.6.0 =
+  Increased number of DIV snippets to 10
+
 = 0.5.0 =
   Removed the buttons from the Post/Page edit toolbar .. the DIV snippets are now added to your post via simply clicking on your chosen DIV directly from the Meta-Box below the Editor
 
