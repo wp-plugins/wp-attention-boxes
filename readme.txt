@@ -17,7 +17,7 @@ This plugin keeps a snippet library of these stylized DIV's, and makes them imme
 
 The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
 
-Thank you to the creator of the Smooth Div Scroll Plugin, which is used in this plugin:  http://www.smoothdivscroll.com/
+( A major Thank you to the creator of the jQuery Smooth Div Scroll Plugin http://www.smoothdivscroll.com/, which I have put to use in this plugin. )
 
 == IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 ==
   When you go to Settings Page after upgrading, and you get a white screen with just the message:
