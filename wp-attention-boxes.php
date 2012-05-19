@@ -2,8 +2,8 @@
 /*
 Plugin Name: WP Attention Boxes
 Plugin URI: http://stevebailey.biz/blog/wp-attention-boxes
-Description: Instantly add four of your most commonly used CSS-styled DIV's for different purposes, such as bringing attention to an important update, or just bringing visual focus to a quote..
-Version: 0.6.0
+Description: Instantly add 10 of your most commonly used CSS-styled DIV's for different purposes, such as bringing attention to an important update, or just bringing visual focus to a quote..
+Version: 0.6.6
 Author: Steve Bailey
 Author URI: http://stevebailey.biz/
 License: GPL
@@ -96,7 +96,7 @@ function attnbox_register_hook() {
 	global $wp_version; 
 	if (version_compare($wp_version, "2.7", "<")) { 
 		deactivate_plugins(basename(__FILE__)); // Deactivate our plugin
-		wp_die("This plugin requires WordPress version 2.7 or higher.");
+		wp_die(__("This plugin requires WordPress version 2.7 or higher."));
 	}
 }
 

@@ -2,8 +2,8 @@
 Contributors: pythoPhpSteve
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
-Tested up to: 3.3.1
-Stable tag: 0.6.0
+Tested up to: 3.3.2
+Stable tag: 0.6.6
 
 A specialized code snippet tool that provides one click access, when editing posts, to 10 different CSS-styled DIVs for custom purposes.
 
@@ -18,33 +18,8 @@ This plugin keeps a snippet library of these stylized DIV's, and makes them imme
 The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
 
 ( A major Thank you to the creator of the jQuery Smooth Div Scroll Plugin http://www.smoothdivscroll.com/, which I have put to use in this plugin. )
-
-== IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 ==
-  When you go to Settings Page after upgrading, and you get a white screen with just the message:
-  
-         " You are not authorized to access this page "
-         
-    To resolve this, please go to your URL bar and 
-       manually change the underscores in attn_boxes_admin_menu.php 
-                           to dashes:     attn-boxes-admin-menu.php
-
- After doing this and hitting Enter, it won't be necessary do this again
                        
 == Installation ==
-
-IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 FROM EARLIER VERSION
-  When you go to Settings Page after upgrading, and you get a white screen with just the message:
-  
-         - You are not authorized to access this page -
-         
-    To resolve this, please go to your URL bar and 
-       manually change the underscores in attn_boxes_admin_menu.php 
-                           to dashes:     attn-boxes-admin-menu.php
-
- After doing this and hitting Enter, it won't be necessary do this again
-                           
---- End of Update Notice ---
-
 
 
 * You can use Zip-uploader feature if your version of Wordpress has it
@@ -61,6 +36,20 @@ IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 FROM EARLIER VERSION
 5. If you're brand new to this plugin, all 10 of the DIV settings will be blank waiting for your amazing CSS creativity, or you could click a button of the page, and it will pre-fill your settings with some samples that I created.
 
 == Frequently Asked Questions ==
+= How do I override things such as height and width of the boxes =
+A.) To override the default width and height, for a specific box, you can do this: 
+  Right after you insert the box (by the usual clicking on the meta-box slider), go directly to the html code in the editor, and right after 
+     style=", you insert: 'height:1111px;width:1111px;', without those single quotes,  so it will look like:
+           
+            style="height:1111px;width:1111px;border: something solid 10px; etc....  
+            (obviously replacing 1111 with your desired height/width)
+
+B.) To change the *default* width and height, so that the attention div's will be your desired width/height, without having to make the change above, every time you want to change it.. Just go on your Server, where you have your blog installed, and go into the wp-attention-boxes/css directory, and just edit the styles.css file, specifically, the .custom_attn_box CSS class, and change the width from 70% to your desired width (in px or em), and add a height that you desire.
+
+So either of the above will do it.
+
+
+
 = When I click on one the DIV's on my Editor Page, there seems to be no response - the snippet is not added. =
 Plesae make sure that you click once directly inside your editor (preferable exactly at the point where you want the DIV to be inserted) before you click on the DIV in the "Your Attention Boxes" Meta Box.
 
@@ -86,6 +75,11 @@ Yes, the next major version will provide the ability to store different styles o
 
 
 == Changelog ==
+= 0.6.6 =
+  Fixed a css style that was creating a blue background on a table cell in Wordpress's settings pages
+= 0.6.5 =
+  Finally made the modifications that should have been done from the start, to enable internationalization of the User Directions on Admin Settings page
+
 = 0.6.0 =
   Increased number of DIV snippets to 10
 
@@ -109,6 +103,4 @@ Fixed a bug in the CSS code that is generated when rounded corners are enabled f
 * Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
-= 0.5.0 =
-This is not an optional upgrade if you have upgraded to Wordpress version 3.3. On V 3.3, the toolbar buttons are missing, thus breaking this plugin's functionality.
-Regardless of the WP version you're using, I'd recommend the upgrade - even below V 3.3, your HTML toolbar will be uncluttered by the buttons and this makes it easier for a future version to have many more DIV snippets.
+If you're really tired of that obnoxious (though harmless) blue box that shows up in some of the Settings Pages, please upgrade to 0.6.6
