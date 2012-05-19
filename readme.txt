@@ -3,7 +3,7 @@ Contributors: pythoPhpSteve
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
 Tested up to: 3.3.2
-Stable tag: 0.6.5
+Stable tag: 0.6.6
 
 A specialized code snippet tool that provides one click access, when editing posts, to 10 different CSS-styled DIVs for custom purposes.
 
@@ -75,6 +75,8 @@ Yes, the next major version will provide the ability to store different styles o
 
 
 == Changelog ==
+= 0.6.6 =
+  Fixed a css style that was creating a blue background on a table cell in Wordpress's settings pages
 = 0.6.5 =
   Finally made the modifications that should have been done from the start, to enable internationalization of the User Directions on Admin Settings page
 
@@ -101,6 +103,4 @@ Fixed a bug in the CSS code that is generated when rounded corners are enabled f
 * Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
-= 0.5.0 =
-This is not an optional upgrade if you have upgraded to Wordpress version 3.3. On V 3.3, the toolbar buttons are missing, thus breaking this plugin's functionality.
-Regardless of the WP version you're using, I'd recommend the upgrade - even below V 3.3, your HTML toolbar will be uncluttered by the buttons and this makes it easier for a future version to have many more DIV snippets.
+If you're really tired of that obnoxious (though harmless) blue box that shows up in some of the Settings Pages, please upgrade to 0.6.6

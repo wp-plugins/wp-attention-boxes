@@ -26,21 +26,21 @@
   
 }
 
-.form-table th {
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu .form-table th {
     width: 85px;
     padding-right: 1px;
 }
 
-.form-table th input[type="checkbox"] {
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu .form-table th input[type="checkbox"] {
   margin-right: 8px;
 }
 
-table.disabled_text tr td input,
-table.disabled_text tr th .name_input {
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu table.disabled_text tr td input,
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu table.disabled_text tr th .name_input {
     color:gray;
 }
 
-.form-table tr:first-child th {
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu .form-table tr:first-child th {
   background-color: blue;
   color: white;
 }
@@ -114,22 +114,22 @@ div#preview_box_container {
   left: 380px;
 }
 
-.form-table {
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu .form-table {
   border-collapse: collapse;
 }
 
-.form-table input,
-.form-table th {
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu .form-table input,
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu .form-table th {
   line-height: .9em;
 }
 
 
 
-.border_color {
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu .form-table .border_color {
   width: 100px;
 }
 
-.border_style {
+.settings_page_wp-attention-boxes-attn-boxes-admin-menu .form-table .border_style {
   width: 120px;
 }
 
