@@ -2,8 +2,8 @@
 Contributors: pythoPhpSteve
 Tags: attention, styled divs, emphasis, snippets, code snippets
 Requires at least: 2.7
-Tested up to: 3.3.1
-Stable tag: 0.6.0
+Tested up to: 3.3.2
+Stable tag: 0.6.5
 
 A specialized code snippet tool that provides one click access, when editing posts, to 10 different CSS-styled DIVs for custom purposes.
 
@@ -18,33 +18,8 @@ This plugin keeps a snippet library of these stylized DIV's, and makes them imme
 The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-attention-boxes" target="_blank">Wp Attention Boxes</a>
 
 ( A major Thank you to the creator of the jQuery Smooth Div Scroll Plugin http://www.smoothdivscroll.com/, which I have put to use in this plugin. )
-
-== IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 ==
-  When you go to Settings Page after upgrading, and you get a white screen with just the message:
-  
-         " You are not authorized to access this page "
-         
-    To resolve this, please go to your URL bar and 
-       manually change the underscores in attn_boxes_admin_menu.php 
-                           to dashes:     attn-boxes-admin-menu.php
-
- After doing this and hitting Enter, it won't be necessary do this again
                        
 == Installation ==
-
-IMPORTANT IF YOU'RE UPGRADING TO 0.6.0 FROM EARLIER VERSION
-  When you go to Settings Page after upgrading, and you get a white screen with just the message:
-  
-         - You are not authorized to access this page -
-         
-    To resolve this, please go to your URL bar and 
-       manually change the underscores in attn_boxes_admin_menu.php 
-                           to dashes:     attn-boxes-admin-menu.php
-
- After doing this and hitting Enter, it won't be necessary do this again
-                           
---- End of Update Notice ---
-
 
 
 * You can use Zip-uploader feature if your version of Wordpress has it
@@ -86,6 +61,9 @@ Yes, the next major version will provide the ability to store different styles o
 
 
 == Changelog ==
+= 0.6.5 =
+  Finally made the modifications that should have been done from the start, to enable internationalization of the User Directions on Admin Settings page
+
 = 0.6.0 =
   Increased number of DIV snippets to 10
 
