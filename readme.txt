@@ -36,6 +36,20 @@ The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-att
 5. If you're brand new to this plugin, all 10 of the DIV settings will be blank waiting for your amazing CSS creativity, or you could click a button of the page, and it will pre-fill your settings with some samples that I created.
 
 == Frequently Asked Questions ==
+= How do I override things such as height and width of the boxes =
+A.) To override the default width and height, for a specific box, you can do this: 
+  Right after you insert the box (by the usual clicking on the meta-box slider), go directly to the html code in the editor, and right after 
+     style=", you insert: 'height:1111px;width:1111px;', without those single quotes,  so it will look like:
+           
+            style="height:1111px;width:1111px;border: something solid 10px; etc....  
+            (obviously replacing 1111 with your desired height/width)
+
+B.) To change the *default* width and height, so that the attention div's will be your desired width/height, without having to make the change above, every time you want to change it.. Just go on your Server, where you have your blog installed, and go into the wp-attention-boxes/css directory, and just edit the styles.css file, specifically, the .custom_attn_box CSS class, and change the width from 70% to your desired width (in px or em), and add a height that you desire.
+
+So either of the above will do it.
+
+
+
 = When I click on one the DIV's on my Editor Page, there seems to be no response - the snippet is not added. =
 Plesae make sure that you click once directly inside your editor (preferable exactly at the point where you want the DIV to be inserted) before you click on the DIV in the "Your Attention Boxes" Meta Box.
 
