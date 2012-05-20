@@ -77,14 +77,14 @@ function wp_attn_boxes_add_div_carousel() {
 
 	add_meta_box( 
 		'attnbox_sectionid',
-		__( 'Your Attention Boxes', 'attnbox_textdomain' ),
+		__( 'Your Attention Boxes', 'wp-attention-boxes' ),
 		'wp_box_div_carousel',
 		'post' 
 	);
     
 	add_meta_box( 
 		'attnbox_sectionid',
-		__( 'Your Attention Boxes', 'attnbox_textdomain' ),
+		__( 'Your Attention Boxes', 'wp-attention-boxes' ),
 		'wp_box_div_carousel',
 		'page' 
 	);
@@ -96,7 +96,7 @@ function attnbox_register_hook() {
 	global $wp_version; 
 	if (version_compare($wp_version, "2.7", "<")) { 
 		deactivate_plugins(basename(__FILE__)); // Deactivate our plugin
-		wp_die(__("This plugin requires WordPress version 2.7 or higher."));
+		wp_die(__("This plugin requires WordPress version 2.7 or higher.", 'wp-attention-boxes'));
 	}
 }
 

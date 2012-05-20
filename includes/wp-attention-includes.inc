@@ -1,5 +1,5 @@
 <?php
-  $wp_attention_box_version = '0.6.0';
+  $wp_attention_box_version = '0.6.6';
 
 
 ?>
