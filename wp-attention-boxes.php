@@ -5,7 +5,7 @@ Plugin URI: http://stevebailey.biz/blog/wp-attention-boxes
 Description: Instantly add 10 of your most commonly used CSS-styled DIV's for different purposes, such as bringing attention to an important update, or just bringing visual focus to a quote..
 Version: 0.6.6
 Author: Steve Bailey
-Author URI: http://stevebailey.biz/
+Author URI: http://stevebailey.biz/blog/wp-attention-boxes
 License: GPL
 
 Copyright 2010 Steve Bailey (email steveswdev@gmail.com)
