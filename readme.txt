@@ -41,14 +41,16 @@ A.) To override the default width and height, for a specific box, you can do thi
   Right after you insert the box (by the usual clicking on the meta-box slider), go directly to the html code in the editor, and right after 
      style=", you insert: 'height:1111px;width:1111px;', without those single quotes,  so it will look like:
            
-            style="height:1111px;width:1111px;border: something solid 10px; etc....  
-            (obviously replacing 1111 with your desired height/width)
+         style="<strong>height:1111px;width:1111px;</strong><span style='color:gray;'>border: 5px solid gray; etc....</span>  
+        (obviously replacing 1111 with your desired height/width)
 
-  <strong> ( Note: </strong> If you add a "height" property, either in this solution, or in "B.)" just below, and you want to maintain your <i>vertical</i> centering, you'll need to also add "line-height" and set it to the same value of "height"  )
+  <strong> ( Note: </strong> If you add a "height" property, either in this solution, or in "B.)" just below, and you want to maintain your <em>vertical</em> centering, you'll need to also add "line-height" and set it to the same value of "height"  )
 
 B.) To change the *default* width and height, so that the attention div's will be your desired width/height, without having to make the change above, every time you want to change it.. Just go on your Server, where you have your blog installed, and go into the wp-attention-boxes/css directory, and just edit the styles.css file, specifically, the .custom_attn_box CSS class, and change the width from 70% to your desired width (in px or em), and add a height that you desire.
 
-So either of the above will do it.
+So either of the above will do it. 
+
+ ( <strong> Note: </strong> Keep in mind, if you customize it per B.), you'll lose the change when you upgrade this plugin. So you might want to just create an additional .custom_attn_box declaration in one of the core Wordpress CSS files, and overriding the height style in there, also adding !important to the style - for info on how !important works, please use google  )
 
 
 
