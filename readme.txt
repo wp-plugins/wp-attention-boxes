@@ -41,7 +41,7 @@ A.) To override the default width and height, for a specific box, you can do thi
   Right after you insert the box (by the usual clicking on the meta-box slider), go directly to the html code in the editor, and right after 
      style=", you insert: 'height:1111px;width:1111px;', without those single quotes,  so it will look like:
            
-         style="<strong>height:1111px;width:1111px;</strong><span style='color:gray;'>border: 5px solid gray; etc....</span>  
+         style="height:1111px;width:1111px; border:5px solid gray; etc....  
         (obviously replacing 1111 with your desired height/width)
 
   <strong> ( Note: </strong> If you add a "height" property, either in this solution, or in "B.)" just below, and you want to maintain your <em>vertical</em> centering, you'll need to also add "line-height" and set it to the same value of "height"  )
