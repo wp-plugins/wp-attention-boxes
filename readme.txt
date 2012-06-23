@@ -54,8 +54,8 @@ So either of the above will do it.
 
 
 
-= When I click on one the DIV's on my Editor Page, there seems to be no response - the snippet is not added. =
-Plesae make sure that you click once directly inside your editor (preferable exactly at the point where you want the DIV to be inserted) before you click on the DIV in the "Your Attention Boxes" Meta Box.
+= When I click on one of my custom DIV's on my Post/Page Editor Page, there seems to be no response - the snippet is not added. =
+Plesae make sure that you click at least once directly inside your editor (preferably, exactly at the point where you want the DIV to be inserted), before you click on the DIV in the "Your Attention Boxes" Meta Box.
 
 = What if I use the Visual Editor when creating pages/posts ? =
 This plugin only works when in the Html editor - i.e. this is basically for users who prefer the HTML tab of the editor, or at least switch to it for tools like this one.
