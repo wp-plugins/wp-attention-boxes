@@ -1,6 +1,6 @@
 <?php
   // current wp attention boxes version
-  $wp_attention_box_version = '0.6.6';
+  $wp_attention_box_version = '1.0.0';
 
 
 ?>

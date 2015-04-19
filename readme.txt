@@ -1,9 +1,9 @@
 === WP Attention Boxes ===
 Contributors: pythoPhpSteve
-Tags: attention, styled divs, emphasis, snippets, code snippets
+Tags: attention, styled divs, emphasis, snippets, code snippets, summary box
 Requires at least: 2.7
-Tested up to: 3.3.2
-Stable tag: 0.6.6
+Tested up to: 4.1.1
+Stable tag: 1.0.0
 
 A specialized code snippet tool that provides one click access, when editing posts, to 10 different CSS-styled DIVs for custom purposes.
 
@@ -21,19 +21,16 @@ The contact page for this plugin is: <a href="http://stevebailey.biz/blog/wp-att
                        
 == Installation ==
 
+1.) The Most Slick, Updated way is to Simply go to your Admin / Plugins / Add New page
 
-* You can use Zip-uploader feature if your version of Wordpress has it
-1. Download the Plugin as Zip file, but DON'T extract the Zip File
-2. In your Admin, Go to Plugins/ Add New / and then click Upload from the choices .. browse for the Zip that you downloaded
-3. Click Activate
+2.) You can use Zip-uploader feature if your version of Wordpress has it
+- Download the Plugin as Zip file, but DON'T extract the Zip File
+- In your Admin, Go to Plugins/ Add New / and then click Upload from the choices .. browse for the Zip that you downloaded
+- Click Activate
 
-* OR do it the manual way:
+Once activated you go to the Plugin options by clicking the 'Attention Div Boxes' link under the 'Settings' menu.
 
-1. Download and extract the Plugin zip file.
-2. Upload the folder containing the Plugin files to your WordPress Plugins folder (usually ../wp-content/plugins/ folder).
-3. Activate the Plugin via the 'Plugins' menu in WordPress.
-4. Once activated you go to the Plugin options by clicking the 'Attention Div Boxes' link under the 'Settings' menu.
-5. If you're brand new to this plugin, all 10 of the DIV settings will be blank waiting for your amazing CSS creativity, or you could click a button of the page, and it will pre-fill your settings with some samples that I created.
+If you're brand new to this plugin, all 10 of the DIV settings will be blank waiting for your CSS creativity, or you could click a button of the page, and it will pre-fill your settings with some samples that I created.
 
 == Frequently Asked Questions ==
 = How do I override things such as height and width of the boxes =
@@ -53,22 +50,8 @@ So either of the above will do it.
  ( <strong> Note: </strong> Keep in mind, if you customize it per B.), you'll lose the change when you upgrade this plugin. So you might want to just create an additional .custom_attn_box declaration in one of the core Wordpress CSS files, and overriding the height style in there, also adding !important to the style - for info on how !important works, please use google  )
 
 
-
 = When I click on one of my custom DIV's on my Post/Page Editor Page, there seems to be no response - the snippet is not added. =
 Please make sure that you click at least once directly inside your editor (preferably, exactly at the point where you want the DIV to be inserted), before you click on the DIV in the "Your Attention Boxes" Meta Box.
-
-= What if I use the Visual Editor when creating pages/posts ? =
-This plugin only works when in the Html editor - i.e. this is basically for users who prefer the HTML tab of the editor, or at least switch to it for tools like this one.
-
-= Ok, but when I switch to the HTML Editor after doing a lot of work in the Visual Editor, sometimes I lose some formatting =
-My advice, to be able to use tools in the Html editor (whether it's this plugin or not) might be to start every brand new blog post with the Html tab active, use the tools you need on that toolbar, and then switch to the Visual Editor where you stay until the post is finished and published. This way you're not going back and forth.
-
-= Does the plugin change the content in the WordPress database? =
-Yes, it adds 2 record to the wp_options table. One of them stores all of the custom DIV's.
- The other simple stores the version number of this plugin.
-
-= Do you plan on adding the ability to store snippets for other types of html elements? =
-Yes, the next major version will provide the ability to store different styles of your own image-based (or non-imaged based) bullet lists
 
 
 == Screenshots ==
@@ -79,6 +62,8 @@ Yes, the next major version will provide the ability to store different styles o
 
 
 == Changelog ==
+= 1.0.0 =
+  Finally, ** You can insert the Attention Boxes in the Visual Editor ! **
 = 0.6.6 =
   Fixed a css style that was creating a blue background on a table cell in Wordpress's settings pages
 = 0.6.5 =
@@ -107,4 +92,4 @@ Fixed a bug in the CSS code that is generated when rounded corners are enabled f
 * Bugfix .. there was an extra quote in the generated snippet and added a Tip to this plugin's f.a.q.
 
 == Upgrade Notice ==
-If you're really tired of that obnoxious (though harmless) blue box that shows up in some of the Settings Pages, please upgrade to 0.6.6
+Finally, ** You can insert the Attention Boxes in the Visual Editor ! **

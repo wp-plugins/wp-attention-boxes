@@ -3,12 +3,12 @@
 Plugin Name: WP Attention Boxes
 Plugin URI: http://stevebailey.biz/blog/wp-attention-boxes
 Description: Instantly add 10 of your most commonly used CSS-styled DIV's for different purposes, such as bringing attention to an important update, or just bringing visual focus to a quote..
-Version: 0.6.6
+Version: 1.0.0
 Author: Steve Bailey
 Author URI: http://stevebailey.biz/blog/wp-attention-boxes
 License: GPL
 
-Copyright 2010 Steve Bailey (email steveswdev@gmail.com)
+Copyright 2015 Steve Bailey (email steveswdev@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -32,7 +32,11 @@ include_once "attn-boxes-admin-menu.php";
 
 add_action( 'admin_init', 'wp_attn_boxes_add_div_carousel');
 add_action('wp_enqueue_scripts', 'wp_attn_box_enqueue_my_styles');
+
+
 register_activation_hook(__FILE__, 'attnbox_register_hook');
+
+
 
 wp_attn_box_run_upgrade_procedure();
 
@@ -88,6 +92,10 @@ function wp_attn_boxes_add_div_carousel() {
 		'wp_box_div_carousel',
 		'page' 
 	);
+
+     // Add custom css to the Visual Editor tinymce, so that the boxes match the style of the live site/front end look while editing	 
+	 $myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/styles.css';
+	 add_editor_style( $myStyleUrl );
 }
 
 
@@ -155,7 +163,7 @@ function wp_attn_box_run_upgrade_procedure() {
 
 	} // if options array exists
 	else {
-		update_option('wp_attention_box_version', "0.6.0");
+		update_option('wp_attention_box_version', "1.0.0");
 		update_option('wp_attention_box_upgrade_to_6', 0);
 	}
 }
@@ -165,14 +173,21 @@ function wp_attn_box_run_upgrade_procedure() {
 // The Wordpress-preferred method of adding CSS needed by plugin.
 // Basically making this plugin's styles.css available to posts   
 function wp_attn_box_enqueue_my_styles() {
-  $myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/styles.css';
+    //$loghandle = fopen("C:\\xampp2\\apps\\wordpress\\htdocs\\wp-content\\plugins\\wp-attention-boxes\\newlogfile.txt",'w'); 
+    //fwrite($loghandle,WP_PLUGIN_DIR); 
+   
+    
+    $myStyleUrl = WP_PLUGIN_URL . '/wp-attention-boxes/css/styles.css';
     $myStyleFile = WP_PLUGIN_DIR . '/wp-attention-boxes/css/styles.css';
     if ( file_exists($myStyleFile) ) {
+
         wp_register_style('my_wpattn_box_StyleSheets', $myStyleUrl);
         wp_enqueue_style( 'my_wpattn_box_StyleSheets');
     }
+    
+    //fclose($loghandle);
 }
-   
+
 
 
 
@@ -213,9 +228,34 @@ function wp_attnbox_add_js_insert_handlers() {
 				}
 				
 				styled_div += ' text-align: ' + textalign + ';"';
-				styled_div += ">your text</div>\n";
+				styled_div += "> Your Amazing Text Here </div><br>\n";
 				myValue = styled_div;
-				edInsertContent(edCanvas, myValue);
+				
+				//tinyMCE.execInstanceCommand
+				var tmce_ver=window.tinyMCE.majorVersion;
+				
+				var chtml= jQuery('#content-html');
+                var ctmce= jQuery('#content-tmce');
+                
+                var c= jQuery('#content'); // textarea
+                var vismode= c.css('display')=='none';
+                
+                if (!vismode) {
+                    edInsertContent(edCanvas, myValue);
+                } 
+                else {
+                    
+                    if (tmce_ver >= 4) {
+                    /* In TinyMCE 4, we must be use the execCommand */
+                      window.tinyMCE.execCommand('mceInsertContent', false, myValue);
+                    } else {
+                        /* In TinyMCE 3x and lower, we must be use the execInstanceCommand */
+                         window.tinyMCE.execInstanceCommand(id, 'mceInsertContent', false, myValue);
+                    }
+                }
+				
+				
+				
 			}
 			//]]></script>
 <?php	}
