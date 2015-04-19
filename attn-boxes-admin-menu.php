@@ -65,6 +65,8 @@ function attn_box_plugin_options() {
         
         
 	<form method="post" action="options.php">
+	
+	
 	<?php settings_fields('attnbox_user_options'); ?>
 	<?php $options = get_option('attnbox_options'); 
 	if ((!$options) && !is_array($options)) { 
