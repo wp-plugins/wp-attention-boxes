@@ -118,7 +118,7 @@ function wp_attn_box_run_upgrade_procedure() {
  	$update_opt = false;
  
 	if (is_array($options)) {
-		if ( (empty($attn_box_version)) || ($attn_box_version != "0.6.0" )) {
+		if ( (empty($attn_box_version)) || ($attn_box_version != "1.0.0" )) {
 			if ((in_array($attn_box_version, $pre_four_version))) {
 				foreach ( range( 1, 4) as $indx ) {
 					if (is_numeric( $options['bwidth'.$indx] )) {
@@ -149,20 +149,23 @@ function wp_attn_box_run_upgrade_procedure() {
    					}
    				}
    				$update_opt = true;
+   				update_option('wp_attention_box_upgrade_to_6', 1);
 			}
 			
 			if ( $update_opt ) {
 			  update_option('attnbox_options', $options);
 			}
 			
-			update_option('wp_attention_box_version', "0.6.0");
+			update_option('wp_attention_box_version', "1.0.0");
+			update_option('wp_attention_box_upgrade_to_6', 0);
 			
-			update_option('wp_attention_box_upgrade_to_6', 1);
+			
 		}
 
 
-	} // if options array exists
-	else {
+	} // if options array exists, or has lower version
+	
+	else {  // has the latest version
 		update_option('wp_attention_box_version', "1.0.0");
 		update_option('wp_attention_box_upgrade_to_6', 0);
 	}
